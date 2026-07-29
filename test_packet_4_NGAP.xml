@@ -3,9 +3,58 @@
         <procedureCode>15</procedureCode>
         <criticality><ignore/></criticality>
         <value>
-            <CellActivationRequest>
+            <InitialUEMessage>
                 <protocolIEs>
-                    <CellActivationRequest-IEs>
+                    <InitialUEMessage-IEs>
                         <id>85</id>
                         <criticality><reject/></criticality>
                         <value>
+                            <RAN-UE-NGAP-ID>3</RAN-UE-NGAP-ID>
+                        </value>
+                    </InitialUEMessage-IEs>
+                    <InitialUEMessage-IEs>
+                        <id>38</id>
+                        <criticality><reject/></criticality>
+                        <value>
+                            <NAS-PDU>7E004179000D0100F1101111000010325410122E02E0E0</NAS-PDU>
+                        </value>
+                    </InitialUEMessage-IEs>
+                    <InitialUEMessage-IEs>
+                        <id>121</id>
+                        <criticality><reject/></criticality>
+                        <value>
+                            <UserLocationInformation>
+                                <userLocationInformationNR>
+                                    <nR-CGI>
+                                        <pLMNIdentity>00F110</pLMNIdentity>
+                                        <nRCellIdentity>
+                                            000000000000000000000111010000100001
+                                        </nRCellIdentity>
+                                    </nR-CGI>
+                                    <tAI>
+                                        <pLMNIdentity>00F110</pLMNIdentity>
+                                        <tAC>00947D</tAC>
+                                    </tAI>
+                                </userLocationInformationNR>
+                            </UserLocationInformation>
+                        </value>
+                    </InitialUEMessage-IEs>
+                    <InitialUEMessage-IEs>
+                        <id>90</id>
+                        <criticality><ignore/></criticality>
+                        <value>
+                            <RRCEstablishmentCause><mo-Signalling/></RRCEstablishmentCause>
+                        </value>
+                    </InitialUEMessage-IEs>
+                    <InitialUEMessage-IEs>
+                        <id>112</id>
+                        <criticality><ignore/></criticality>
+                        <value>
+                            <UEContextRequest><requested/></UEContextRequest>
+                        </value>
+                    </InitialUEMessage-IEs>
+                </protocolIEs>
+            </InitialUEMessage>
+        </value>
+    </initiatingMessage>
+</NGAP-PDU>

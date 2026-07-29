@@ -3,9 +3,51 @@
         <procedureCode>46</procedureCode>
         <criticality><ignore/></criticality>
         <value>
-            <DeactivateTrace>
+            <UplinkNASTransport>
                 <protocolIEs>
-                    <DeactivateTraceIEs>
+                    <UplinkNASTransport-IEs>
                         <id>10</id>
                         <criticality><reject/></criticality>
                         <value>
+                            <AMF-UE-NGAP-ID>4294967292</AMF-UE-NGAP-ID>
+                        </value>
+                    </UplinkNASTransport-IEs>
+                    <UplinkNASTransport-IEs>
+                        <id>85</id>
+                        <criticality><reject/></criticality>
+                        <value>
+                            <RAN-UE-NGAP-ID>3</RAN-UE-NGAP-ID>
+                        </value>
+                    </UplinkNASTransport-IEs>
+                    <UplinkNASTransport-IEs>
+                        <id>38</id>
+                        <criticality><reject/></criticality>
+                        <value>
+                            <NAS-PDU>7E02EB891752027E006701002B2E0101C1FFFF91B17B00208080211001000010810600000000830600000000000A00001000000D00001100120181</NAS-PDU>
+                        </value>
+                    </UplinkNASTransport-IEs>
+                    <UplinkNASTransport-IEs>
+                        <id>121</id>
+                        <criticality><ignore/></criticality>
+                        <value>
+                            <UserLocationInformation>
+                                <userLocationInformationNR>
+                                    <nR-CGI>
+                                        <pLMNIdentity>00F110</pLMNIdentity>
+                                        <nRCellIdentity>
+                                            000000000000000000000111010000100001
+                                        </nRCellIdentity>
+                                    </nR-CGI>
+                                    <tAI>
+                                        <pLMNIdentity>00F110</pLMNIdentity>
+                                        <tAC>00947D</tAC>
+                                    </tAI>
+                                </userLocationInformationNR>
+                            </UserLocationInformation>
+                        </value>
+                    </UplinkNASTransport-IEs>
+                </protocolIEs>
+            </UplinkNASTransport>
+        </value>
+    </initiatingMessage>
+</NGAP-PDU>

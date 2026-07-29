@@ -61,11 +61,11 @@ def parse_log(filepath):
     current_packet = ""
     last_proto = None
     
-    for proto, hex_str in current_hex:
+    for proto, payload in current_hex:
         if proto != last_proto and current_packet:
             packets.append((last_proto, current_packet))
             current_packet = ""
-        current_packet += hex_str
+        current_packet += payload
         last_proto = proto
         
     if current_packet:
@@ -74,7 +74,7 @@ def parse_log(filepath):
     for idx, (proto, payload) in enumerate(packets):
         print("="*60)
         print(f"Packet #{idx+1} [{proto}]")
-        print(f"Payload: {payload[:len(payload)//2 + 1]}... (len: {len(payload)//2} bytes)")
+        print(f"Payload: {payload} (len: {len(payload)//2} bytes)")
         
         # Call asncodec
         decoder_path = "./build/asncodec"

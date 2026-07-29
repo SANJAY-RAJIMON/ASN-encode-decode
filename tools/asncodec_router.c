@@ -51,15 +51,24 @@ int main(int argc, char *argv[]) {
         protocol[i] = tolower(protocol[i]);
     }
 
+    // Map RRC sub-protocols to 'rrc' binary
+    const char* binary_suffix = protocol;
+    if (strcmp(protocol, "ul_ccch") == 0 || strcmp(protocol, "dl_ccch") == 0 ||
+        strcmp(protocol, "ul_dcch") == 0 || strcmp(protocol, "dl_dcch") == 0 ||
+        strcmp(protocol, "bcch_bch") == 0 || strcmp(protocol, "bcch_dl_sch") == 0 ||
+        strcmp(protocol, "pcch") == 0) {
+        binary_suffix = "rrc";
+    }
+
     // 2. Find our directory so we can run the sibling binary
     char dir_path[PATH_MAX];
     get_executable_dir(dir_path, sizeof(dir_path));
 
     char target_binary[PATH_MAX];
     if (dir_path[0] != '\0') {
-        snprintf(target_binary, sizeof(target_binary), "%s/asncodec_%s", dir_path, protocol);
+        snprintf(target_binary, sizeof(target_binary), "%s/asncodec_%s", dir_path, binary_suffix);
     } else {
-        snprintf(target_binary, sizeof(target_binary), "./asncodec_%s", protocol);
+        snprintf(target_binary, sizeof(target_binary), "./asncodec_%s", binary_suffix);
     }
 
     // 3. Execute the target binary with all original arguments
