@@ -64,8 +64,9 @@ add_codec_protocol_library(X2AP X2AP_SOURCES)
 # add_codec_protocol_library(S1AP S1AP_SOURCES)
 add_codec_protocol_library(XNAP XNAP_SOURCES)
 # asn1c's config.h lives in the asn1c source root — expose it only to the xnap target
+set(ASN1C_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../asn1c" CACHE PATH "Path to asn1c source directory containing config.h")
 target_include_directories(codec_xnap PRIVATE
-    /home/srajimon/airspan/asn1c
+    ${ASN1C_DIR}
 )
 
 # ============================================================
