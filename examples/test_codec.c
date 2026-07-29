@@ -75,13 +75,15 @@ int main(void)
     uint8_t encoded[1024];
     size_t encoded_size = 0;
 
+    CodecError error;
     CodecStatus status =
         codec_encode(
             CODEC_UL_CCCH_MESSAGE,
             msg,
             encoded,
             sizeof(encoded),
-            &encoded_size
+            &encoded_size,
+            &error
         );
 
     if(status != CODEC_SUCCESS)
@@ -104,7 +106,8 @@ int main(void)
             CODEC_UL_CCCH_MESSAGE,
             msg,
             hex,
-            sizeof(hex)
+            sizeof(hex),
+            &error
         );
 
     if(status != CODEC_SUCCESS)
@@ -124,7 +127,8 @@ int main(void)
             CODEC_UL_CCCH_MESSAGE,
             encoded,
             encoded_size,
-            (void **)&decoded
+            (void **)&decoded,
+            &error
         );
 
     if(status != CODEC_SUCCESS)
@@ -143,7 +147,8 @@ int main(void)
         codec_decode_hex(
             CODEC_UL_CCCH_MESSAGE,
             hex,
-            (void **)&decoded_hex
+            (void **)&decoded_hex,
+            &error
         );
 
     if(status != CODEC_SUCCESS)

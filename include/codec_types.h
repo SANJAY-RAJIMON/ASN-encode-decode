@@ -12,8 +12,14 @@ typedef enum
     CODEC_ERROR_ENCODE_FAILED,
     CODEC_ERROR_DECODE_FAILED,
     CODEC_ERROR_BUFFER_TOO_SMALL,
-    CODEC_ERROR_UNSUPPORTED_ENCODING
+    CODEC_ERROR_UNSUPPORTED_ENCODING,
+    CODEC_ERROR_VALIDATION_FAILED
 } CodecStatus;
+
+typedef struct {
+    char message[256];
+    const char *failed_type;
+} CodecError;
 
 /* Transfer Syntax (Encoding Rule) */
 typedef enum

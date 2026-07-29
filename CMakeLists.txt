@@ -69,12 +69,34 @@ target_include_directories(codec_xnap PRIVATE
 )
 
 # ============================================================
-# Examples
+# Tools and Examples
 # ============================================================
+add_executable(asn1_decoder
+    examples/asn1_decoder.c
+    src/codec.c
+    src/protocol_registry.c
+)
+target_compile_definitions(asn1_decoder PRIVATE
+    CODEC_PROTOCOL_RRC
+    CODEC_PROTOCOL_NGAP
+    CODEC_PROTOCOL_X2AP
+    CODEC_PROTOCOL_XNAP
+)
+target_include_directories(asn1_decoder PRIVATE
+    include
+    generated/rrc
+    generated/ngap
+    generated/x2ap
+    generated/xnap
+)
+# Link all codec libraries to the universal decoder for generated ASN.1 types
+target_link_libraries(asn1_decoder
+    PRIVATE codec_rrc codec_x2ap codec_ngap codec_xnap
+)
+
 add_executable(test_codec
     examples/test_codec.c
 )
-
 target_link_libraries(test_codec
     PRIVATE codec_rrc
 )
@@ -82,7 +104,6 @@ target_link_libraries(test_codec
 add_executable(test_x2ap_codec
     examples/test_x2ap_round_trip.c
 )
-
 target_link_libraries(test_x2ap_codec
     PRIVATE codec_x2ap
 )
@@ -90,7 +111,6 @@ target_link_libraries(test_x2ap_codec
 add_executable(test_ngap_codec
     examples/test_ngap_round_trip.c
 )
-
 target_link_libraries(test_ngap_codec
     PRIVATE codec_ngap
 )
@@ -98,7 +118,16 @@ target_link_libraries(test_ngap_codec
 add_executable(test_xnap_codec
     examples/test_xnap_round_trip.c
 )
-
 target_link_libraries(test_xnap_codec
     PRIVATE codec_xnap
 )
+
+# ============================================================
+# CTest Integration
+# ============================================================
+enable_testing()
+
+add_test(NAME test_rrc_codec COMMAND test_codec)
+add_test(NAME test_x2ap_codec COMMAND test_x2ap_codec)
+add_test(NAME test_ngap_codec COMMAND test_ngap_codec)
+add_test(NAME test_xnap_codec COMMAND test_xnap_codec)

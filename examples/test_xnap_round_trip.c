@@ -43,12 +43,14 @@ int main(void)
     uint8_t buffer[1024];
     size_t encoded_size = 0;
 
+    CodecError error;
     CodecStatus status = codec_encode(
         CODEC_XNAP_PDU,
         message,
         buffer,
         sizeof(buffer),
-        &encoded_size
+        &encoded_size,
+        &error
     );
 
     if(status != CODEC_SUCCESS)
@@ -70,7 +72,8 @@ int main(void)
         CODEC_XNAP_PDU,
         message,
         hex,
-        sizeof(hex)
+        sizeof(hex),
+        &error
     );
 
     if(status != CODEC_SUCCESS)
@@ -89,7 +92,8 @@ int main(void)
         CODEC_XNAP_PDU,
         buffer,
         encoded_size,
-        (void **)&decoded
+        (void **)&decoded,
+        &error
     );
 
     if(status != CODEC_SUCCESS)
@@ -107,7 +111,8 @@ int main(void)
     status = codec_decode_hex(
         CODEC_XNAP_PDU,
         hex,
-        (void **)&decoded_hex
+        (void **)&decoded_hex,
+        &error
     );
 
     if(status != CODEC_SUCCESS)

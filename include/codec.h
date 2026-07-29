@@ -3,6 +3,7 @@
 
 #include <stddef.h>
 #include <stdint.h>
+#include <stdio.h>
 
 #include <stdlib.h>
 #include <ctype.h>
@@ -17,17 +18,19 @@ extern "C"{
 
 CodecStatus codec_encode(
     CodecProtocol protocol,
-    const void* message,
-    uint8_t* buffer,
+    const void *message,
+    uint8_t *buffer,
     size_t buffer_size,
-    size_t* encoded_size
+    size_t *encoded_size,
+    CodecError *error
 );
 
 CodecStatus codec_decode(
     CodecProtocol protocol,
-    const uint8_t* buffer,
+    const uint8_t *buffer,
     size_t buffer_size,
-    void **message
+    void **message,
+    CodecError *error
 );
 
 CodecStatus codec_free(
@@ -38,20 +41,34 @@ CodecStatus codec_free(
 //to handle hex dumps
 CodecStatus codec_decode_hex(
     CodecProtocol protocol,
-    const char *hex_stroing,
-    void **message
+    const char *hex_string,
+    void **message,
+    CodecError *error
 );
 
 CodecStatus codec_encode_hex(
     CodecProtocol protocol,
     const void *message,
     char *hex_buffer,
-    size_t hex_buffer_size
+    size_t hex_buffer_size,
+    CodecError *error
+);
+
+CodecStatus codec_validate(
+    CodecProtocol protocol,
+    const void *message,
+    CodecError *error
 );
 
 void codec_print_hex(
     const uint8_t *buffer,
     size_t length
+);
+
+CodecStatus codec_print(
+    CodecProtocol protocol,
+    FILE *stream,
+    const void *message
 );
 
 static int hex_value(char c);
