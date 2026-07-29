@@ -12,7 +12,8 @@ CodecStatus codec_encode(
     const void *message,
     uint8_t *buffer,
     size_t buffer_size,
-    size_t *encoded_size
+    size_t *encoded_size,
+    CodecError *error
 )
 {
     if(!message || !buffer || !encoded_size)
@@ -34,8 +35,13 @@ CodecStatus codec_encode(
             buffer_size
         );
 
-    if(result.encoded == -1)
+    if(result.encoded == -1) {
+        if(error) {
+            snprintf(error->failed_type_name, sizeof(error->failed_type_name), "%s", result.failed_type ? result.failed_type->name : "Unknown");
+            snprintf(error->message, sizeof(error->message), "Encode failed at type %s", result.failed_type ? result.failed_type->name : "Unknown");
+        }
         return CODEC_ERROR_ENCODE_FAILED;
+    }
 
     *encoded_size = (result.encoded + 7) / 8;
 
@@ -46,7 +52,8 @@ CodecStatus codec_decode(
     CodecProtocol protocol,
     const uint8_t *buffer,
     size_t buffer_size,
-    void **message
+    void **message,
+    CodecError *error
 )
 {
     if(!buffer || !message)
@@ -71,7 +78,54 @@ CodecStatus codec_decode(
     );
 
     if(result.code != RC_OK)
+    {
+        if(error) {
+            snprintf(error->message, sizeof(error->message), "Decode failed after %zu bytes", result.consumed);
+        }
+        if (*message) {
+            ASN_STRUCT_FREE(*entry->descriptor, *message);
+            *message = NULL;
+        }
         return CODEC_ERROR_DECODE_FAILED;
+    }
+
+    return CODEC_SUCCESS;
+}
+
+CodecStatus codec_validate(
+    CodecProtocol protocol,
+    const void *message,
+    CodecError *error
+)
+{
+    if(!message)
+        return CODEC_ERROR_INVALID_ARGUMENT;
+
+    const ProtocolEntry *entry =
+        protocol_registry_lookup(protocol);
+
+    if(!entry)
+        return CODEC_ERROR_INVALID_PROTOCOL;
+
+    char errbuf[256];
+    size_t errlen = sizeof(errbuf);
+
+    int ret = asn_check_constraints(
+        entry->descriptor,
+        message,
+        errbuf,
+        &errlen
+    );
+
+    if(ret != 0) {
+        if(error) {
+            snprintf(error->message, sizeof(error->message), "%s", errbuf);
+            // In asn_check_constraints, we don't always get the failed type cleanly like in encode,
+            // but the message usually contains the field name.
+            snprintf(error->failed_type_name, sizeof(error->failed_type_name), "Constraint_Violation");
+        }
+        return CODEC_ERROR_VALIDATION_FAILED;
+    }
 
     return CODEC_SUCCESS;
 }
@@ -110,7 +164,8 @@ static int hex_value(char c)
 CodecStatus codec_decode_hex(
     CodecProtocol protocol,
     const char *hex_string,
-    void **message
+    void **message,
+    CodecError *error
 )
 {
     if(!hex_string || !message)
@@ -141,7 +196,8 @@ CodecStatus codec_decode_hex(
             protocol,
             buffer,
             bytes,
-            message
+            message,
+            error
         );
 
     free(buffer);
@@ -153,7 +209,8 @@ CodecStatus codec_encode_hex(
     CodecProtocol protocol,
     const void *message,
     char *hex_buffer,
-    size_t hex_buffer_size
+    size_t hex_buffer_size,
+    CodecError *error
 )
 {
     if(!message || !hex_buffer)
@@ -167,7 +224,8 @@ CodecStatus codec_encode_hex(
         message,
         buffer,
         sizeof(buffer),
-        &encoded_size
+        &encoded_size,
+        error
     );
 
     if(status != CODEC_SUCCESS)

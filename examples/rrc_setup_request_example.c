@@ -51,12 +51,15 @@ int main(void){
     uint8_t buffer[1024];
     size_t encoded_size;
 
+    CodecError error;
+
     CodecStatus status = codec_encode(
-        CODEC_RRC_SETUP_REQUEST,
+        CODEC_UL_CCCH_MESSAGE,
         &request,
         buffer,
         sizeof(buffer),
-        &encoded_size
+        &encoded_size,
+        &error
     );
     if (status != CODEC_SUCCESS){
         printf("Encoding failed with status: %d\n", status);
@@ -78,10 +81,11 @@ int main(void){
     //Decode section
     RRCSetupRequest_t *decoded = NULL;
     status = codec_decode(
-        CODEC_RRC_SETUP_REQUEST,
+        CODEC_UL_CCCH_MESSAGE,
         buffer,
         encoded_size, 
-        (void**)&decoded
+        (void**)&decoded,
+        &error
     );
 
     if (status != CODEC_SUCCESS){
@@ -160,7 +164,7 @@ else
     free(request.rrcSetupRequest.spare.buf);
 
     codec_free(
-        CODEC_RRC_SETUP_REQUEST,
+        CODEC_UL_CCCH_MESSAGE,
         decoded);
 
     return 0;

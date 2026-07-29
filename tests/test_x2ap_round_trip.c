@@ -5,32 +5,32 @@
 
 #include "codec.h"
 #include "ProtocolIE-Container.h"
-#include "NGAP-PDU.h"
+#include "X2AP-PDU.h"
 
 int main(void)
 {
     printf("========================================\n");
-    printf(" NGAP CODEC LIBRARY TEST\n");
+    printf(" X2AP CODEC LIBRARY TEST\n");
     printf("========================================\n\n");
 
     printf("[1] Allocating message hierarchy...\n");
 
-    NGAP_PDU_t *message = calloc(1, sizeof(*message));
+    X2AP_PDU_t *message = calloc(1, sizeof(*message));
     InitiatingMessage_t *initiating_message = calloc(1, sizeof(*initiating_message));
-    ProtocolIE_Container_112P73_t *protocol_ies = calloc(1, sizeof(*protocol_ies));
+    ProtocolIE_Container_108P10_t *protocol_ies = calloc(1, sizeof(*protocol_ies));
 
     assert(message != NULL);
     assert(initiating_message != NULL);
     assert(protocol_ies != NULL);
 
-    message->present = NGAP_PDU_PR_initiatingMessage;
+    message->present = X2AP_PDU_PR_initiatingMessage;
     message->choice.initiatingMessage = initiating_message;
 
     printf("    ✓ Hierarchy allocated\n");
 
     printf("[2] Filling IEs...\n");
 
-    initiating_message->procedureCode = ProcedureCode_id_ErrorIndication;
+    initiating_message->procedureCode = ProcedureCode_id_errorIndication;
     initiating_message->criticality = Criticality_ignore;
     initiating_message->value.present = InitiatingMessage__value_PR_ErrorIndication;
     initiating_message->value.choice.ErrorIndication.protocolIEs =
@@ -43,12 +43,15 @@ int main(void)
     uint8_t buffer[1024];
     size_t encoded_size = 0;
 
+    CodecError error;
+
     CodecStatus status = codec_encode(
-        CODEC_NGAP_PDU,
+        CODEC_X2AP_PDU,
         message,
         buffer,
         sizeof(buffer),
-        &encoded_size
+        &encoded_size,
+        &error
     );
 
     if(status != CODEC_SUCCESS)
@@ -67,10 +70,11 @@ int main(void)
     char hex[4096];
 
     status = codec_encode_hex(
-        CODEC_NGAP_PDU,
+        CODEC_X2AP_PDU,
         message,
         hex,
-        sizeof(hex)
+        sizeof(hex),
+        &error
     );
 
     if(status != CODEC_SUCCESS)
@@ -83,13 +87,14 @@ int main(void)
 
     printf("\n[5] Decoding Bytes...\n");
 
-    NGAP_PDU_t *decoded = NULL;
+    X2AP_PDU_t *decoded = NULL;
 
     status = codec_decode(
-        CODEC_NGAP_PDU,
+        CODEC_X2AP_PDU,
         buffer,
         encoded_size,
-        (void **)&decoded
+        (void **)&decoded,
+        &error
     );
 
     if(status != CODEC_SUCCESS)
@@ -102,12 +107,13 @@ int main(void)
 
     printf("\n[6] Decoding HEX...\n");
 
-    NGAP_PDU_t *decoded_hex = NULL;
+    X2AP_PDU_t *decoded_hex = NULL;
 
     status = codec_decode_hex(
-        CODEC_NGAP_PDU,
+        CODEC_X2AP_PDU,
         hex,
-        (void **)&decoded_hex
+        (void **)&decoded_hex,
+        &error
     );
 
     if(status != CODEC_SUCCESS)
@@ -123,13 +129,13 @@ int main(void)
     assert(decoded != NULL);
     assert(decoded_hex != NULL);
 
-    assert(decoded->present == NGAP_PDU_PR_initiatingMessage);
-    assert(decoded_hex->present == NGAP_PDU_PR_initiatingMessage);
+    assert(decoded->present == X2AP_PDU_PR_initiatingMessage);
+    assert(decoded_hex->present == X2AP_PDU_PR_initiatingMessage);
 
     printf("✓ Top level choice\n");
 
-    assert(decoded->choice.initiatingMessage->procedureCode == ProcedureCode_id_ErrorIndication);
-    assert(decoded_hex->choice.initiatingMessage->procedureCode == ProcedureCode_id_ErrorIndication);
+    assert(decoded->choice.initiatingMessage->procedureCode == ProcedureCode_id_errorIndication);
+    assert(decoded_hex->choice.initiatingMessage->procedureCode == ProcedureCode_id_errorIndication);
 
     assert(decoded->choice.initiatingMessage->criticality == Criticality_ignore);
     assert(decoded_hex->choice.initiatingMessage->criticality == Criticality_ignore);
@@ -139,9 +145,9 @@ int main(void)
 
     printf("✓ Procedure Code and Criticality\n");
 
-    ProtocolIE_Container_112P73_t *d_protocol_ies = (ProtocolIE_Container_112P73_t *)
+    ProtocolIE_Container_108P10_t *d_protocol_ies = (ProtocolIE_Container_108P10_t *)
         decoded->choice.initiatingMessage->value.choice.ErrorIndication.protocolIEs;
-    ProtocolIE_Container_112P73_t *h_protocol_ies = (ProtocolIE_Container_112P73_t *)
+    ProtocolIE_Container_108P10_t *h_protocol_ies = (ProtocolIE_Container_108P10_t *)
         decoded_hex->choice.initiatingMessage->value.choice.ErrorIndication.protocolIEs;
 
     assert(d_protocol_ies != NULL);
@@ -155,9 +161,9 @@ int main(void)
 
     printf("\n[8] Freeing...\n");
 
-    codec_free(CODEC_NGAP_PDU, message);
-    codec_free(CODEC_NGAP_PDU, decoded);
-    codec_free(CODEC_NGAP_PDU, decoded_hex);
+    codec_free(CODEC_X2AP_PDU, message);
+    codec_free(CODEC_X2AP_PDU, decoded);
+    codec_free(CODEC_X2AP_PDU, decoded_hex);
 
     printf("========================================\n");
     printf(" ALL TESTS PASSED\n");

@@ -5,6 +5,18 @@ project(asn_codec C)
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 
+option(ENABLE_ASAN "Enable AddressSanitizer (Memory Leak and Bounds Checking)" OFF)
+if(ENABLE_ASAN)
+    add_compile_options(-fsanitize=address -fno-omit-frame-pointer -g -O1)
+    add_link_options(-fsanitize=address)
+endif()
+
+option(ENABLE_FUZZING "Enable libFuzzer instrumentation" OFF)
+if(ENABLE_FUZZING)
+    add_compile_options(-fsanitize=fuzzer,address -fno-omit-frame-pointer -g -O1)
+    add_link_options(-fsanitize=fuzzer,address)
+endif()
+
 # Each ASN.1 protocol generates global symbols with common names (such as
 # asn_DEF_ProtocolIE_Field).  Keep each protocol in a separate library so a
 # consumer links exactly one codec protocol library at a time.
@@ -70,36 +82,83 @@ target_include_directories(codec_xnap PRIVATE
 )
 
 # ============================================================
-# Examples
+# Tools and Examples
 # ============================================================
-add_executable(test_codec
-    examples/test_codec.c
+add_executable(asn1_decoder
+    tools/asn1_decoder.c
+    src/codec.c
+    src/protocol_registry.c
+)
+target_compile_definitions(asn1_decoder PRIVATE
+    CODEC_PROTOCOL_RRC
+    CODEC_PROTOCOL_NGAP
+    CODEC_PROTOCOL_X2AP
+    CODEC_PROTOCOL_XNAP
+)
+target_include_directories(asn1_decoder PRIVATE
+    include
+    generated/rrc
+    generated/ngap
+    generated/x2ap
+    generated/xnap
+)
+target_link_libraries(asn1_decoder
+    PRIVATE codec_rrc codec_x2ap codec_ngap codec_xnap
 )
 
+add_executable(basic_usage
+    examples/basic_usage.c
+)
+target_link_libraries(basic_usage
+    PRIVATE codec_ngap
+)
+
+add_executable(test_codec
+    tests/test_codec.c
+)
 target_link_libraries(test_codec
     PRIVATE codec_rrc
 )
 
 add_executable(test_x2ap_codec
-    examples/test_x2ap_round_trip.c
+    tests/test_x2ap_round_trip.c
 )
-
 target_link_libraries(test_x2ap_codec
     PRIVATE codec_x2ap
 )
 
 add_executable(test_ngap_codec
-    examples/test_ngap_round_trip.c
+    tests/test_ngap_round_trip.c
 )
-
 target_link_libraries(test_ngap_codec
     PRIVATE codec_ngap
 )
 
 add_executable(test_xnap_codec
-    examples/test_xnap_round_trip.c
+    tests/test_xnap_round_trip.c
 )
-
 target_link_libraries(test_xnap_codec
     PRIVATE codec_xnap
 )
+
+# ============================================================
+# CTest Integration
+# ============================================================
+enable_testing()
+
+add_test(NAME test_rrc_codec COMMAND test_codec)
+add_test(NAME test_x2ap_codec COMMAND test_x2ap_codec)
+add_test(NAME test_ngap_codec COMMAND test_ngap_codec)
+add_test(NAME test_xnap_codec COMMAND test_xnap_codec)
+
+if(ENABLE_FUZZING)
+    add_executable(asn1_fuzzer
+        fuzz/fuzz_target.c
+    )
+    target_compile_definitions(asn1_fuzzer PRIVATE
+        CODEC_PROTOCOL_NGAP
+    )
+    target_link_libraries(asn1_fuzzer
+        PRIVATE codec_ngap
+    )
+endif()
