@@ -83,29 +83,30 @@ target_include_directories(codec_xnap PRIVATE
 )
 
 # ============================================================
-# Tools and Examples
+# Isolated CLI Executables (No Symbol Clashing)
 # ============================================================
-add_executable(asncodec
-    tools/asncodec.c
-    src/cli/cli.c
-    src/codec.c
-    src/protocol_registry.c
-    src/protocol_map.c
-)
-target_compile_definitions(asncodec PRIVATE
-    CODEC_PROTOCOL_RRC
-    CODEC_PROTOCOL_NGAP
-    CODEC_PROTOCOL_X2AP
-    CODEC_PROTOCOL_XNAP
-add_executable(asncodec tools/asncodec.c tools/parse_log.c)
-target_link_libraries(asncodec codec_ngap codec_rrc codec_x2ap codec_xnap codec_s1ap -lm)
-target_compile_definitions(asncodec PRIVATE EMIT_ASN_DEBUG=1)
+add_executable(asncodec_ngap tools/asncodec.c src/cli/cli.c)
+target_link_libraries(asncodec_ngap PRIVATE codec_ngap -lm)
+target_include_directories(asncodec_ngap PRIVATE src/cli)
 
-add_executable(asncodec_ngap tools/asncodec.c tools/parse_log.c)
-target_link_libraries(asncodec_ngap codec_ngap -lm)
-target_compile_definitions(asncodec_ngap PRIVATE EMIT_ASN_DEBUG=1)
+add_executable(asncodec_x2ap tools/asncodec.c src/cli/cli.c)
+target_link_libraries(asncodec_x2ap PRIVATE codec_x2ap -lm)
+target_include_directories(asncodec_x2ap PRIVATE src/cli)
 
-install(TARGETS asncodec asncodec_ngap DESTINATION bin OPTIONAL)
+add_executable(asncodec_xnap tools/asncodec.c src/cli/cli.c)
+target_link_libraries(asncodec_xnap PRIVATE codec_xnap -lm)
+target_include_directories(asncodec_xnap PRIVATE src/cli)
+
+add_executable(asncodec_rrc tools/asncodec.c src/cli/cli.c)
+target_link_libraries(asncodec_rrc PRIVATE codec_rrc -lm)
+target_include_directories(asncodec_rrc PRIVATE src/cli)
+
+# ============================================================
+# Router CLI (asncodec)
+# ============================================================
+add_executable(asncodec tools/asncodec_router.c)
+
+install(TARGETS asncodec asncodec_ngap asncodec_x2ap asncodec_xnap asncodec_rrc DESTINATION bin OPTIONAL)
 
 
 add_executable(basic_usage
