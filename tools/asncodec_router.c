@@ -42,8 +42,13 @@ int main(int argc, char *argv[]) {
     }
 
     if (protocol[0] == '\0') {
-        fprintf(stderr, "Error: Missing --protocol argument. Please specify a protocol (e.g., NGAP, X2AP).\n");
-        return 1;
+        // If the user is just asking for list, help, or version, route to NGAP by default
+        if (argc > 1 && (strcmp(argv[1], "list") == 0 || strcmp(argv[1], "help") == 0 || strcmp(argv[1], "version") == 0)) {
+            strncpy(protocol, "ngap", sizeof(protocol) - 1);
+        } else {
+            fprintf(stderr, "Error: Missing --protocol argument. Please specify a protocol (e.g., NGAP, X2AP).\n");
+            return 1;
+        }
     }
 
     // Convert protocol to lowercase
