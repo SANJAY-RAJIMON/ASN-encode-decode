@@ -7,6 +7,9 @@
 #include <per_encoder.h>
 #include <per_decoder.h>
 
+#include <xer_decoder.h>
+
+
 CodecStatus codec_encode(
     CodecProtocol protocol,
     const void *message,
@@ -80,7 +83,51 @@ CodecStatus codec_decode(
     if(result.code != RC_OK)
     {
         if(error) {
-            snprintf(error->message, sizeof(error->message), "Decode failed after %zu bytes", result.consumed);
+            // result.consumed is in bits for PER decoding
+            snprintf(error->message, sizeof(error->message), "Decode failed after %zu bits", result.consumed);
+        }
+        if (*message) {
+            ASN_STRUCT_FREE(*entry->descriptor, *message);
+            *message = NULL;
+        }
+        return CODEC_ERROR_DECODE_FAILED;
+    }
+
+    return CODEC_SUCCESS;
+}
+
+CodecStatus codec_decode_xml(
+    CodecProtocol protocol,
+    const char *xml_buffer,
+    size_t xml_size,
+    void **message,
+    CodecError *error
+)
+{
+    if(!xml_buffer || !message)
+        return CODEC_ERROR_INVALID_ARGUMENT;
+
+    const ProtocolEntry *entry =
+        protocol_registry_lookup(protocol);
+
+    if(!entry)
+        return CODEC_ERROR_INVALID_PROTOCOL;
+
+    asn_dec_rval_t result;
+
+    result = xer_decode(
+        NULL,
+        entry->descriptor,
+        message,
+        xml_buffer,
+        xml_size
+    );
+
+    if(result.code != RC_OK)
+    {
+        if(error) {
+            snprintf(error->message, sizeof(error->message), "XER decode failed after %zu bytes", result.consumed);
+            error->failed_type_name[0] = '\0';
         }
         if (*message) {
             ASN_STRUCT_FREE(*entry->descriptor, *message);

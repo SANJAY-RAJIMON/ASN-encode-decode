@@ -102,8 +102,8 @@ int main(void) {
         codec_free(CODEC_NGAP_PDU, message);
         return 1;
     }
-
-    printf("  -> Decode Passed! Message is an NGAP PDU.\n");
+    printf("  -> Decode Passed! Message is an NGAP PDU. Contents:\n\n");
+    asn_fprint(stdout, &asn_DEF_NGAP_PDU, decoded_message);
 
     // ---------------------------------------------------------
     // 5. CLEANUP

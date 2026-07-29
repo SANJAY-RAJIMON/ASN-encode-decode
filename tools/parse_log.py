@@ -74,13 +74,14 @@ def parse_log(filepath):
     for idx, (proto, payload) in enumerate(packets):
         print("="*60)
         print(f"Packet #{idx+1} [{proto}]")
-        print(f"Payload: {payload[:60]}... (len: {len(payload)//2} bytes)")
+        print(f"Payload: {payload[:len(payload)//2 + 1]}... (len: {len(payload)//2} bytes)")
         
-        # Call asn1_decoder
-        decoder_path = "./build/asn1_decoder"
+        # Call asncodec
+        decoder_path = "./build/asncodec"
         try:
-            result = subprocess.run([decoder_path, proto, payload], capture_output=True, text=True)
-            if "Decode Successful!" in result.stdout:
+            result = subprocess.run([decoder_path, "decode", "--protocol", proto, "--hex", payload], capture_output=True, text=True)
+            if "Decode successful" in result.stdout:
+                print(result.stdout)
                 print("[SUCCESS] Decoded successfully!")
                 # Print any validation errors if present
                 for rline in result.stdout.split('\n'):

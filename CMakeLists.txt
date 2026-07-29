@@ -55,6 +55,7 @@ endforeach()
 set(WRAPPER_SOURCES
     src/codec.c
     src/protocol_registry.c
+    src/protocol_map.c
 )
 
 function(add_codec_protocol_library protocol source_list)
@@ -84,27 +85,32 @@ target_include_directories(codec_xnap PRIVATE
 # ============================================================
 # Tools and Examples
 # ============================================================
-add_executable(asn1_decoder
-    tools/asn1_decoder.c
+add_executable(asncodec
+    tools/asncodec.c
+    src/cli/cli.c
     src/codec.c
     src/protocol_registry.c
+    src/protocol_map.c
 )
-target_compile_definitions(asn1_decoder PRIVATE
+target_compile_definitions(asncodec PRIVATE
     CODEC_PROTOCOL_RRC
     CODEC_PROTOCOL_NGAP
     CODEC_PROTOCOL_X2AP
     CODEC_PROTOCOL_XNAP
 )
-target_include_directories(asn1_decoder PRIVATE
+target_include_directories(asncodec PRIVATE
     include
+    src/cli
     generated/rrc
     generated/ngap
     generated/x2ap
     generated/xnap
 )
-target_link_libraries(asn1_decoder
+target_link_libraries(asncodec
     PRIVATE codec_rrc codec_x2ap codec_ngap codec_xnap
 )
+install(TARGETS asncodec DESTINATION bin OPTIONAL)
+
 
 add_executable(basic_usage
     examples/basic_usage.c
@@ -112,6 +118,14 @@ add_executable(basic_usage
 target_link_libraries(basic_usage
     PRIVATE codec_ngap
 )
+
+add_executable(rrc_setup_request_example
+    examples/rrc_setup_request_example.c
+)
+target_link_libraries(rrc_setup_request_example
+    PRIVATE codec_rrc
+)
+
 
 add_executable(test_codec
     tests/test_codec.c

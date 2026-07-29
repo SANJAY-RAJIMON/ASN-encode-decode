@@ -13,14 +13,14 @@ Built on top of `asn1c`, this library abstracts away the extreme complexity of t
   - **Memory Safety**: Safely cleans up partial allocations on decode failures.
   - **AddressSanitizer (ASAN)** integrated directly into the CMake build system.
   - **Fuzz Testing**: First-class support for `libFuzzer` instrumentation to hunt down hidden vulnerabilities by bombarding the codec with mutated packets.
-- **Universal CLI Tool**: Contains a command-line `asn1_decoder` capable of ingesting Hex dumps and automatically dumping the XML/JSON representation of the packet for human debugging.
+- **Universal CLI Tool**: Contains a command-line `asncodec` capable of listing supported protocols, ingesting Hex dumps or binary files, and automatically validating or dumping the representation of the packet for human debugging.
 
 ## Directory Structure
 
 - `include/` - Public API headers (`codec.h`, `codec_types.h`).
 - `src/` - Core library implementation (`codec.c`, `protocol_registry.c`).
 - `tests/` - Automated round-trip unit tests.
-- `tools/` - Standalone binaries for engineers (e.g., `asn1_decoder`).
+- `tools/` - Standalone binaries for engineers (e.g., `asncodec`).
 - `fuzz/` - Security and Fuzz testing targets.
 - `examples/` - Basic tutorial scripts for API usage.
 
@@ -97,3 +97,63 @@ int main() {
     return 0;
 }
 ```
+
+## Protocol Mapping API
+
+To avoid relying on hardcoded enums, you can use the `protocol_map.h` module to dynamically resolve protocol names at runtime (case-insensitive):
+
+```c
+#include "protocol_map.h"
+
+codec_protocol_t proto = codec_protocol_from_name("NGAP");
+if (proto != CODEC_PROTOCOL_UNKNOWN) {
+    // Protocol is valid
+    printf("Resolved protocol: %s\n", codec_protocol_name(proto));
+}
+```
+
+## CLI Usage (asncodec)
+
+The new `asncodec` executable removes the need to write C code just to test encoding/decoding.
+
+### List Supported Protocols
+```bash
+$ asncodec list
+Supported protocols
+-------------------
+NGAP
+X2AP
+XNAP
+UL_CCCH
+...
+```
+
+### Decode from Hex
+```bash
+$ asncodec decode --protocol NGAP --hex 001122334455
+```
+
+### Decode from File
+```bash
+$ asncodec decode --protocol NGAP --file packet.bin
+```
+*(If the protocol can be inferred from the filename, you can also omit `--protocol`)*
+
+### Validate File
+```bash
+$ asncodec validate --protocol NGAP --file packet.bin
+```
+
+### Encode from XML
+Convert a human-readable XML file into a binary or hex ASN.1 packet:
+```bash
+$ asncodec encode --protocol NGAP --xml input.xml --out-hex output.hex
+$ asncodec encode --protocol NGAP --xml input.xml --out-bin output.bin
+```
+*(If `--out-hex` or `--out-bin` is omitted, the hex output will be printed to stdout.)*
+
+### Get Library Version
+```bash
+$ asncodec version
+```
+

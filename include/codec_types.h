@@ -54,8 +54,12 @@ typedef enum
     CODEC_X2AP_PDU,
 
     /* XNAP */
-    CODEC_XNAP_PDU
+    CODEC_XNAP_PDU,
+
+    CODEC_PROTOCOL_UNKNOWN = -1
 
 } CodecProtocol;
+
+typedef CodecProtocol codec_protocol_t;
 
 #endif
