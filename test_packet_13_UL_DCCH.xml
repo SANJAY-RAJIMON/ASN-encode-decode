@@ -1,0 +1,12 @@
+<UL-DCCH-Message>
+    <message>
+        <c1>
+            <securityModeComplete>
+                <rrc-TransactionIdentifier>3</rrc-TransactionIdentifier>
+                <criticalExtensions>
+                    <securityModeComplete></securityModeComplete>
+                </criticalExtensions>
+            </securityModeComplete>
+        </c1>
+    </message>
+</UL-DCCH-Message>

@@ -83,6 +83,19 @@ def parse_log(filepath):
             if "Decode successful" in result.stdout:
                 print(result.stdout)
                 print("[SUCCESS] Decoded successfully!")
+                
+                # Generate XML test case
+                xml_result = subprocess.run([decoder_path, "decode", "--protocol", proto, "--hex", payload, "--xml"], capture_output=True, text=True)
+                if "Decode successful" in xml_result.stdout:
+                    xml_content = xml_result.stdout.split("Decode successful\n", 1)[-1]
+                    last_idx = xml_content.rfind('>')
+                    if last_idx != -1:
+                        xml_content = xml_content[:last_idx+1].strip()
+                    xml_filename = f"test_packet_{idx+1}_{proto}.xml"
+                    with open(xml_filename, "w") as xf:
+                        xf.write(xml_content)
+                    print(f"  -> Saved XML test case to {xml_filename}")
+                
                 # Print any validation errors if present
                 for rline in result.stdout.split('\n'):
                     if "Validation failed" in rline:

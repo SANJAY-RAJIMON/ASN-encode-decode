@@ -1,0 +1,12 @@
+<UL-DCCH-Message>
+    <message>
+        <c1>
+            <rrcReconfigurationComplete>
+                <rrc-TransactionIdentifier>2</rrc-TransactionIdentifier>
+                <criticalExtensions>
+                    <rrcReconfigurationComplete></rrcReconfigurationComplete>
+                </criticalExtensions>
+            </rrcReconfigurationComplete>
+        </c1>
+    </message>
+</UL-DCCH-Message>

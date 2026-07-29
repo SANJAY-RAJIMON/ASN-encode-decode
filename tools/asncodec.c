@@ -16,7 +16,7 @@ static void print_help() {
     printf("  asncodec list\n");
     printf("  asncodec version\n");
     printf("  asncodec help\n");
-    printf("  asncodec decode [--protocol PROTOCOL] [--hex HEX | --file FILE | FILE]\n");
+    printf("  asncodec decode [--protocol PROTOCOL] [--hex HEX | --file FILE | FILE] [--xml]\n");
     printf("  asncodec validate [--protocol PROTOCOL] --file FILE\n");
     printf("  asncodec encode [--protocol PROTOCOL] --xml FILE [--out-hex FILE | --out-bin FILE]\n\n");
 }
@@ -44,6 +44,7 @@ static int cmd_decode_validate(int argc, char **argv, bool validate_only) {
     const char *protocol_str = NULL;
     const char *hex_str = NULL;
     const char *file_str = NULL;
+    bool out_xml = false;
 
     for (int i = 2; i < argc; i++) {
         if (strcmp(argv[i], "--protocol") == 0 && i + 1 < argc) {
@@ -52,6 +53,8 @@ static int cmd_decode_validate(int argc, char **argv, bool validate_only) {
             hex_str = argv[++i];
         } else if (strcmp(argv[i], "--file") == 0 && i + 1 < argc) {
             file_str = argv[++i];
+        } else if (strcmp(argv[i], "--xml") == 0) {
+            out_xml = true;
         } else if (argv[i][0] != '-') {
             file_str = argv[i];
         } else {
@@ -119,7 +122,11 @@ static int cmd_decode_validate(int argc, char **argv, bool validate_only) {
         printf("Decode successful\n");
         const ProtocolEntry *entry = protocol_registry_lookup(protocol);
         if (entry && entry->descriptor) {
-            asn_fprint(stdout, entry->descriptor, message);
+            if (out_xml) {
+                xer_fprint(stdout, entry->descriptor, message);
+            } else {
+                asn_fprint(stdout, entry->descriptor, message);
+            }
         }
     }
 

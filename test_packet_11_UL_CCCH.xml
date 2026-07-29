@@ -1,0 +1,20 @@
+<UL-CCCH-Message>
+    <message>
+        <c1>
+            <rrcResumeRequest>
+                <rrcResumeRequest>
+                    <resumeIdentity>
+                        101111000100110101010101
+                    </resumeIdentity>
+                    <resumeMAC-I>
+                        0001011101010100
+                    </resumeMAC-I>
+                    <resumeCause><mo-SMS/></resumeCause>
+                    <spare>
+                        0
+                    </spare>
+                </rrcResumeRequest>
+            </rrcResumeRequest>
+        </c1>
+    </message>
+</UL-CCCH-Message>

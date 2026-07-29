@@ -1,0 +1,11 @@
+<NGAP-PDU>
+    <initiatingMessage>
+        <procedureCode>15</procedureCode>
+        <criticality><ignore/></criticality>
+        <value>
+            <CellActivationRequest>
+                <protocolIEs>
+                    <CellActivationRequest-IEs>
+                        <id>85</id>
+                        <criticality><reject/></criticality>
+                        <value>

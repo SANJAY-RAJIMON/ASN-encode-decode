@@ -1,0 +1,14 @@
+<DL-DCCH-Message>
+    <message>
+        <c1>
+            <dlInformationTransfer>
+                <rrc-TransactionIdentifier>1</rrc-TransactionIdentifier>
+                <criticalExtensions>
+                    <dlInformationTransfer>
+                        <dedicatedNAS-Message>7E00560102000021D7832607C5272F0D6EE4A63B9A3590832010EC4B44935B18800082C4E6FF9CB690FB</dedicatedNAS-Message>
+                    </dlInformationTransfer>
+                </criticalExtensions>
+            </dlInformationTransfer>
+        </c1>
+    </message>
+</DL-DCCH-Message>

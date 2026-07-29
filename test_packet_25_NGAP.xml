@@ -1,0 +1,11 @@
+<NGAP-PDU>
+    <successfulOutcome>
+        <procedureCode>29</procedureCode>
+        <criticality><reject/></criticality>
+        <value>
+            <SgNBModificationRequestAcknowledge>
+                <protocolIEs>
+                    <SgNBModificationRequestAcknowledge-IEs>
+                        <id>10</id>
+                        <criticality><ignore/></criticality>
+                        <value>

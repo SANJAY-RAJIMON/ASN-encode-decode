@@ -1,0 +1,11 @@
+<NGAP-PDU>
+    <initiatingMessage>
+        <procedureCode>46</procedureCode>
+        <criticality><ignore/></criticality>
+        <value>
+            <DeactivateTrace>
+                <protocolIEs>
+                    <DeactivateTraceIEs>
+                        <id>10</id>
+                        <criticality><reject/></criticality>
+                        <value>

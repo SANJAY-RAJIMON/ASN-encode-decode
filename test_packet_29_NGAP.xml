@@ -1,0 +1,11 @@
+<NGAP-PDU>
+    <successfulOutcome>
+        <procedureCode>41</procedureCode>
+        <criticality><reject/></criticality>
+        <value>
+            <EUTRANRCellResourceCoordinationResponse>
+                <protocolIEs>
+                    <EUTRANRCellResourceCoordinationResponse-IEs>
+                        <id>10</id>
+                        <criticality><ignore/></criticality>
+                        <value>

@@ -1,0 +1,2195 @@
+Parsing Trial-UE-Attach.log for ASN.1 Hex Dumps...
+
+============================================================
+Packet #1 [UL_CCCH]
+Payload: 127066b... (len: 6 bytes)
+Decode successful
+UL-CCCH-Message ::= {
+    message: RRCSetupRequest ::= {
+        rrcSetupRequest: RRCSetupRequest-IEs ::= {
+            ue-Identity: 27 06 6B A5 D6 (1 bit unused)
+            establishmentCause: 3 (mo-Signalling)
+            spare: 00 (7 bits unused)
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+============================================================
+Packet #2 [DL_CCCH]
+Payload: 204020a70560b80160023ca578e020cbcc00f80401507980020d6092cc0ca8040ffffffff800080023b842100001c0bb862080001c0b6907040290408008830048008d450441c8d4a22c08680043100039438840451000394388804310003943a8c04510003943b01802218099aa9a4a0f5abd8b36addcba4f7afe0c38b1e4cbb4000400d00814034040600d0181c034080800d028240340c0a00d0382c034100c00d04834034140e00d0583c034181000d068440341c1200d0784c034201400d08854034241600d0985c034281800d0a8640342c1a00d0b86c034301c00d0c874034341e00d0d87c034382000d0e8840343c2200d0f88c034402400d10894034442600d1189c034482800d128a40344c2a00d138ac034502c00d148b4034542e00d158bc034583000d168c40345c3200d178cc034603400d188d4034643600d198dc034683800d1a8e40346c3a00d1b8ec034703c00d1c8f403474... (len: 694 bytes)
+Decode successful
+DL-CCCH-Message ::= {
+    message: RRCSetup ::= {
+        rrc-TransactionIdentifier: 0
+        criticalExtensions: RRCSetup-IEs ::= {
+            radioBearerConfig: RadioBearerConfig ::= {
+                srb-ToAddModList: SRB-ToAddModList ::= {
+                    SRB-ToAddMod ::= {
+                        srb-Identity: 1
+                        pdcp-Config: PDCP-Config ::= {
+                            t-Reordering: 19 (ms200)
+                        }
+                    }
+                }
+            }
+            masterCellGroup: 
+                5C 00 B0 01 1E 52 BC 70 10 65 E6 00 7C 02 00 A8 
+                3C C0 01 06 B0 49 66 06 54 02 07 FF FF FF FC 00 
+                04 00 11 DC 21 08 00 00 E0 5D C3 10 40 00 0E 05 
+                B4 83 82 01 48 20 40 04 41 80 24 00 46 A2 82 20 
+                E4 6A 51 16 04 34 00 21 88 00 1C A1 C4 20 22 88 
+                00 1C A1 C4 40 21 88 00 1C A1 D4 60 22 88 00 1C 
+                A1 D8 0C 01 10 C0 4C D5 4D 25 07 AD 5E C5 9B 56 
+                EE 5D 27 BD 7F 06 1C 58 F2 65 DA 00 02 00 68 04 
+                0A 01 A0 20 30 06 80 C0 E0 1A 04 04 00 68 14 12 
+                01 A0 60 50 06 81 C1 60 1A 08 06 00 68 24 1A 01 
+                A0 A0 70 06 82 C1 E0 1A 0C 08 00 68 34 22 01 A0 
+                E0 90 06 83 C2 60 1A 10 0A 00 68 44 2A 01 A1 20 
+                B0 06 84 C2 E0 1A 14 0C 00 68 54 32 01 A1 60 D0 
+                06 85 C3 60 1A 18 0E 00 68 64 3A 01 A1 A0 F0 06 
+                86 C3 E0 1A 1C 10 00 68 74 42 01 A1 E1 10 06 87 
+                C4 60 1A 20 12 00 68 84 4A 01 A2 21 30 06 88 C4 
+                E0 1A 24 14 00 68 94 52 01 A2 61 50 06 89 C5 60 
+                1A 28 16 00 68 A4 5A 01 A2 A1 70 06 8A C5 E0 1A 
+                2C 18 00 68 B4 62 01 A2 E1 90 06 8B C6 60 1A 30 
+                1A 00 68 C4 6A 01 A3 21 B0 06 8C C6 E0 1A 34 1C 
+                00 68 D4 72 01 A3 61 D0 06 8D C7 60 1A 38 1E 00 
+                68 E4 7A 01 A3 A1 F0 06 8E C7 E0 1A 3C 20 00 68 
+                F4 82 01 A3 E2 10 06 8F C8 60 1A 40 22 00 69 04 
+                8A 01 A4 22 30 06 90 C8 E0 1A 44 24 00 69 14 92 
+                01 A4 62 50 06 91 C9 60 1A 48 26 00 69 24 9A 01 
+                A4 A2 70 06 92 C9 E0 1A 4C 28 00 69 34 A2 01 A4 
+                E2 90 06 93 CA 60 1A 50 2A 00 69 44 AA 01 A5 22 
+                B0 06 94 CA E0 1A 54 2C 00 69 54 B2 01 A5 62 D0 
+                06 95 CB 60 1A 58 2E 00 69 64 BA 01 A5 A2 F0 06 
+                96 CB E0 1A 5C 30 00 69 74 C2 01 A5 E3 12 36 97 
+                CC C8 DA 60 35 23 69 84 DC 8D A6 23 92 36 98 CE 
+                C8 DA 64 3D 23 69 94 FC 8D A6 64 12 26 99 D0 A8 
+                9A 68 44 22 69 A5 16 89 A6 A4 72 26 9A D2 28 9A 
+                6C 4A 22 69 B5 2E 89 B2 74 8C 30 25 A0 39 A2 B3 
+                C4 D0 10 08 5D 23 A0 09 24 A0 00 21 00 18 21 DA 
+                42 29 86 53 10 A6 31 4C 72 9C 70 04 A0 70 00 01 
+                80 02 7B 60 00 02 02 00 00 0F 40 00 00 86 54 14 
+                01 88 AA 8A 00 86 00 60 9D 50 03 F1 00 15 06 01 
+                30 10 10 C4 00 0E 20 02 A1 C0 06 04 02 28 80 01 
+                C4 00 54 38 00 C0 C0 43 10 00 38 80 0A 87 40 18 
+                20 08 A2 00 07 10 01 50 E8 00 40 00 00 04 10 C0 
+                40 80 C1 00 E0 B8 00 7E 50 60 00 00 00 80 20 00 
+                40 30 00 40 16 80 00 04 80 D0 66 38 07 E0 69 00
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+============================================================
+Packet #3 [UL_DCCH]
+Payload: 100405df80105e400340403c44044... (len: 28 bytes)
+Decode successful
+UL-DCCH-Message ::= {
+    message: RRCSetupComplete ::= {
+        rrc-TransactionIdentifier: 0
+        criticalExtensions: RRCSetupComplete-IEs ::= {
+            selectedPLMN-Identity: 1
+            dedicatedNAS-Message: 
+                7E 00 41 79 00 0D 01 00 F1 10 11 11 00 00 10 32 
+                54 10 12 2E 02 E0 E0
+            nonCriticalExtension: RRCSetupComplete-v1610-IEs ::= {
+                nonCriticalExtension: RRCSetupComplete-v1690-IEs ::= {
+                    ul-RRC-Segmentation-r16: 0 (true)
+                }
+            }
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+============================================================
+Packet #4 [NGAP]
+Payload: 000f404200000500550002000300260018177e004179000d0100f1101111000010325410122e02e0e00079000f4000f110000007421000f11000947d005a4001180070400100... (len: 139 bytes)
+Decode successful
+InitiatingMessage ::= {
+    procedureCode: 15
+    criticality: 1 (ignore)
+    value: CellActivationRequest ::= {
+        protocolIEs: ProtocolIE-Container ::= {
+            CellActivationRequest-IEs ::= {
+                id: 85
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            CellActivationRequest-IEs ::= {
+                id: 38
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            CellActivationRequest-IEs ::= {
+                id: 121
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            CellActivationRequest-IEs ::= {
+                id: 90
+                criticality: 1 (ignore)
+                value: <absent>
+            }
+            CellActivationRequest-IEs ::= {
+                id: 112
+                criticality: 1 (ignore)
+                value: <absent>
+            }
+        }
+    }
+}
+Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+
+[SUCCESS] Decoded successfully!
+  -> Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+============================================================
+Packet #5 [DL_DCCH]
+Payload: 2a854fc00ac0204000043af064c0f8a4e5e1addc94c773... (len: 45 bytes)
+Decode successful
+DL-DCCH-Message ::= {
+    message: DLInformationTransfer ::= {
+        rrc-TransactionIdentifier: 1
+        criticalExtensions: DLInformationTransfer-IEs ::= {
+            dedicatedNAS-Message: 
+                7E 00 56 01 02 00 00 21 D7 83 26 07 C5 27 2F 0D 
+                6E E4 A6 3B 9A 35 90 83 20 10 EC 4B 44 93 5B 18 
+                80 00 82 C4 E6 FF 9C B6 90 FB
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+============================================================
+Packet #6 [UL_DCCH]
+Payload: 3a0abf002b96884bbcb9d79ba... (len: 24 bytes)
+Decode successful
+UL-DCCH-Message ::= {
+    message: ULInformationTransfer ::= {
+        criticalExtensions: ULInformationTransfer-IEs ::= {
+            dedicatedNAS-Message: 
+                7E 00 57 2D 10 97 79 73 AF 37 44 9C 8C 43 AD D8 
+                DD 84 4F 17 63
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+============================================================
+Packet #7 [NGAP]
+Payload: 002e403f000004000a000560fffffffc00550002000300260016157e00572d10977973af37449c8c43add8dd844f17630079400f4000f1100... (len: 112 bytes)
+Decode successful
+InitiatingMessage ::= {
+    procedureCode: 46
+    criticality: 1 (ignore)
+    value: DeactivateTrace ::= {
+        protocolIEs: ProtocolIE-Container ::= {
+            DeactivateTraceIEs ::= {
+                id: 10
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            DeactivateTraceIEs ::= {
+                id: 85
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            DeactivateTraceIEs ::= {
+                id: 38
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            DeactivateTraceIEs ::= {
+                id: 121
+                criticality: 1 (ignore)
+                value: <absent>
+            }
+        }
+    }
+}
+Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+
+[SUCCESS] Decoded successfully!
+  -> Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+============================================================
+Packet #8 [DL_DCCH]
+Payload: 2c824fc075535730400fc0... (len: 21 bytes)
+Decode successful
+DL-DCCH-Message ::= {
+    message: DLInformationTransfer ::= {
+        rrc-TransactionIdentifier: 2
+        criticalExtensions: DLInformationTransfer-IEs ::= {
+            dedicatedNAS-Message: 
+                7E 03 AA 9A B9 82 00 7E 00 5D 01 01 02 E0 E0 36 
+                01 02
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+============================================================
+Packet #9 [UL_DCCH]
+Payload: 3a17bf0271c04ef0003f002f3880113f0020bc8006808078880... (len: 50 bytes)
+Decode successful
+UL-DCCH-Message ::= {
+    message: ULInformationTransfer ::= {
+        criticalExtensions: ULInformationTransfer-IEs ::= {
+            dedicatedNAS-Message: 
+                7E 04 E3 80 9D E0 00 7E 00 5E 71 00 22 7E 00 41 
+                79 00 0D 01 00 F1 10 11 11 00 00 10 32 54 10 12 
+                10 03 04 00 10 2E 02 E0 E0 18 01 01 53 01 01
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+============================================================
+Packet #10 [NGAP]
+Payload: 002e4059000004000a000560fffffffc005500020003002600302f7e04e3809de0007e005e7100227e004179000d0100f11011110000103254101210030400102e02e0e01801015301010079400f4000f110000007421000f11000947d000e00808c000007000a000560fffffffc005500020003001c00070000f1100200c10000000200010077000918000c000000000000005e0020a03566124ce9267c9ec9ede200c5452e7f7654923465fda6c3db83b29d5fe948002... (len: 366 bytes)
+Decode successful
+InitiatingMessage ::= {
+    procedureCode: 46
+    criticality: 1 (ignore)
+    value: DeactivateTrace ::= {
+        protocolIEs: ProtocolIE-Container ::= {
+            DeactivateTraceIEs ::= {
+                id: 10
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            DeactivateTraceIEs ::= {
+                id: 85
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            DeactivateTraceIEs ::= {
+                id: 38
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            DeactivateTraceIEs ::= {
+                id: 121
+                criticality: 1 (ignore)
+                value: <absent>
+            }
+        }
+    }
+}
+Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+
+[SUCCESS] Decoded successfully!
+  -> Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+============================================================
+Packet #11 [UL_CCCH]
+Payload: 3789aaa2ea8e395abfd1d5216e09a7222bbf2772f19fb3924... (len: 48 bytes)
+Decode successful
+UL-CCCH-Message ::= {
+    message: RRCResumeRequest ::= {
+        rrcResumeRequest: RRCResumeRequest-IEs ::= {
+            resumeIdentity: BC 4D 55
+            resumeMAC-I: 17 54
+            resumeCause: 7 (mo-SMS)
+            spare: 00 (7 bits unused)
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+============================================================
+Packet #12 [DL_DCCH]
+Payload: 2608... (len: 3 bytes)
+Decode successful
+DL-DCCH-Message ::= {
+    message: SecurityModeCommand ::= {
+        rrc-TransactionIdentifier: 3
+        criticalExtensions: SecurityModeCommand-IEs ::= {
+            securityConfigSMC: SecurityConfigSMC ::= {
+                securityAlgorithmConfig: SecurityAlgorithmConfig ::= {
+                    cipheringAlgorithm: 1 (nea1)
+                    integrityProtAlgorithm: 1 (nia1)
+                }
+            }
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+============================================================
+Packet #13 [UL_DCCH]
+Payload: 2e0... (len: 2 bytes)
+Decode successful
+UL-DCCH-Message ::= {
+    message: SecurityModeComplete ::= {
+        rrc-TransactionIdentifier: 3
+        criticalExtensions: SecurityModeComplete-IEs ::= {
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+============================================================
+Packet #14 [DL_DCCH]
+Payload: 300201a0030... (len: 10 bytes)
+Decode successful
+DL-DCCH-Message ::= {
+    message: UECapabilityEnquiry ::= {
+        rrc-TransactionIdentifier: 0
+        criticalExtensions: UECapabilityEnquiry-IEs ::= {
+            ue-CapabilityRAT-RequestList: UE-CapabilityRAT-RequestList ::= {
+                UE-CapabilityRAT-Request ::= {
+                    rat-Type: 0 (nr)
+                    capabilityRequestFilter: 80 0C 04 C8 08 20
+                }
+            }
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+============================================================
+Packet #15 [UL_DCCH]
+Payload: 4882202b7868cce810140120f0500701980900e05a02df8d8386a80002c00b0000040101262e000307e1a8018dff800101000b8014c5c4c900000109c00356830001801e81c790e7c00008010001003c2e007fe003801ff8004... (len: 178 bytes)
+Decode successful
+UL-DCCH-Message ::= {
+    message: UECapabilityInformation ::= {
+        rrc-TransactionIdentifier: 0
+        criticalExtensions: UECapabilityInformation-IEs ::= {
+            ue-CapabilityRAT-ContainerList: UE-CapabilityRAT-ContainerList ::= {
+                UE-CapabilityRAT-Container ::= {
+                    rat-Type: 0 (nr)
+                    ue-CapabilityRAT-Container: 
+                        E1 A3 33 A0 40 50 04 83 C1 40 1C 06 60 24 03 81 
+                        68 0B 7E 36 0E 1A A0 00 0B 00 2C 00 00 10 04 04 
+                        98 B8 00 0C 1F 86 A0 06 37 FE 00 04 04 00 2E 00 
+                        53 17 13 24 00 00 04 27 00 0D 5A 0C 00 06 00 7A 
+                        07 1E 43 9F 00 00 20 04 00 04 00 F0 B8 01 FF 80 
+                        0E 00 7F E0 01 11 00 00 1B 2F 00 02 F0 00 00 04 
+                        00 E2 60 00 00 00 03 01 32 02 09 48 10 00 01 C0 
+                        20 27 00 C0 48 16 10 00 64 00 00 1F 00 00 00 00 
+                        00 00 07 2A 28 00 08 00 00 4B 2C A0 01 E5 50 51 
+                        74 00 0B 40 0F 00 01 00 0C 80 00 00 00 01 00 00 
+                        00 04 00 80 10 24 42 55 00 00 B3 12 60
+                }
+            }
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+============================================================
+Packet #16 [NGAP]
+Payload: 002c4080cc000003000a000560fffffffc00550002000300754080b580b3040580880ade1a333a040500483c1401c0660240381680b7e360e1aa0000b002c000010040498b8000c1f86a00637fe000404002e005317132400000427000d5a0c0006007a071e439f000... (len: 209 bytes)
+[FAILED] Decode failed: Invalid APER encoding / Decode failed (Decode failed after 0 bits)
+============================================================
+Packet #17 [DL_DCCH]
+Payload: 2a866fc05a706b0b402fc00840202ee0017e401e220040183ffffff... (len: 54 bytes)
+Decode successful
+DL-DCCH-Message ::= {
+    message: DLInformationTransfer ::= {
+        rrc-TransactionIdentifier: 1
+        criticalExtensions: DLInformationTransfer-IEs ::= {
+            dedicatedNAS-Message: 
+                7E 02 D3 83 58 5A 01 7E 00 42 01 01 77 00 0B F2 
+                00 F1 10 02 00 C1 FF FF FF FC 54 07 20 00 F1 10 
+                00 94 7D 15 02 01 01 31 02 01 01 21 03 05 00 01 
+                5E 01 05
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+============================================================
+Packet #18 [NGAP]
+Payload: 200e0012000002000a40056... (len: 22 bytes)
+Decode successful
+SuccessfulOutcome ::= {
+    procedureCode: 14
+    criticality: 0 (reject)
+    value: <absent>
+}
+Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+
+[SUCCESS] Decoded successfully!
+  -> Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+============================================================
+Packet #19 [UL_DCCH]
+Payload: 3a053f014bb62e... (len: 13 bytes)
+Decode successful
+UL-DCCH-Message ::= {
+    message: ULInformationTransfer ::= {
+        criticalExtensions: ULInformationTransfer-IEs ::= {
+            dedicatedNAS-Message: 7E 02 97 6C 5D 7A 01 7E 00 43
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+============================================================
+Packet #20 [NGAP]
+Payload: 002e4034000004000a000560fffffffc0055000200030026000b0a7e0... (len: 56 bytes)
+Decode successful
+InitiatingMessage ::= {
+    procedureCode: 46
+    criticality: 1 (ignore)
+    value: DeactivateTrace ::= {
+        protocolIEs: ProtocolIE-Container ::= {
+            DeactivateTraceIEs ::= {
+                id: 10
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            DeactivateTraceIEs ::= {
+                id: 85
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            DeactivateTraceIEs ::= {
+                id: 38
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            DeactivateTraceIEs ::= {
+                id: 121
+                criticality: 1 (ignore)
+                value: <absent>
+            }
+        }
+    }
+}
+Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+
+[SUCCESS] Decoded successfully!
+  -> Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+============================================================
+Packet #21 [UL_DCCH]
+Payload: 3a1dbf0175c48ba9013f0033808015970080e0ffffc8d8bd801040401088008... (len: 62 bytes)
+Decode successful
+UL-DCCH-Message ::= {
+    message: ULInformationTransfer ::= {
+        criticalExtensions: ULInformationTransfer-IEs ::= {
+            dedicatedNAS-Message: 
+                7E 02 EB 89 17 52 02 7E 00 67 01 00 2B 2E 01 01 
+                C1 FF FF 91 B1 7B 00 20 80 80 21 10 01 00 00 10 
+                81 06 00 00 00 00 83 06 00 00 00 00 00 0A 00 00 
+                10 00 00 0D 00 00 11 00 12 01 81
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+============================================================
+Packet #22 [NGAP]
+Payload: 002e4065000004000a000560fffffffc0055000200030026003c3b7e02eb891752027e006701002b2e0101c1ffff91b17b00208080211001000010810600000000830600000000000a00001000000d000011001201810079400f4000f110000007421000f11000947d001d0080d0000004000a000560fffffffc005500020003004a0080ab0040016f7e02ac94b3fe027e00680100602e0101c211000901000... (len: 318 bytes)
+Decode successful
+InitiatingMessage ::= {
+    procedureCode: 46
+    criticality: 1 (ignore)
+    value: DeactivateTrace ::= {
+        protocolIEs: ProtocolIE-Container ::= {
+            DeactivateTraceIEs ::= {
+                id: 10
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            DeactivateTraceIEs ::= {
+                id: 85
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            DeactivateTraceIEs ::= {
+                id: 38
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            DeactivateTraceIEs ::= {
+                id: 121
+                criticality: 1 (ignore)
+                value: <absent>
+            }
+        }
+    }
+}
+Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+
+[SUCCESS] Decoded successfully!
+  -> Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+============================================================
+Packet #23 [DL_DCCH]
+Payload: 048a814530268048008d78fc1d404ea80561223ca578e020cbcc01638c6f8abf9c141e11a0214efe3831920c00201002022405c1600006f7e02ac94b3fe027e00680100602e0101c211000901000631210101280... (len: 167 bytes)
+Decode successful
+DL-DCCH-Message ::= {
+    message: RRCReconfiguration ::= {
+        rrc-TransactionIdentifier: 2
+        criticalExtensions: RRCReconfiguration-IEs ::= {
+            radioBearerConfig: RadioBearerConfig ::= {
+                srb-ToAddModList: SRB-ToAddModList ::= {
+                    SRB-ToAddMod ::= {
+                        srb-Identity: 2
+                        pdcp-Config: PDCP-Config ::= {
+                            t-Reordering: 19 (ms200)
+                        }
+                    }
+                }
+                drb-ToAddModList: DRB-ToAddModList ::= {
+                    DRB-ToAddMod ::= {
+                        cnAssociation: SDAP-Config ::= {
+                            pdu-Session: 1
+                            sdap-HeaderDL: 0 (present)
+                            sdap-HeaderUL: 0 (present)
+                            defaultDRB: TRUE
+                            mappedQoS-FlowsToAdd: mappedQoS-FlowsToAdd ::= {
+                                1
+                            }
+                        }
+                        drb-Identity: 4
+                        pdcp-Config: PDCP-Config ::= {
+                            drb: drb ::= {
+                                discardTimer: 15 (infinity)
+                                pdcp-SN-SizeUL: 1 (len18bits)
+                                pdcp-SN-SizeDL: 1 (len18bits)
+                                headerCompression: <present>
+                            }
+                            t-Reordering: 14 (ms100)
+                        }
+                    }
+                }
+            }
+            nonCriticalExtension: RRCReconfiguration-v1530-IEs ::= {
+                masterCellGroup: 
+                    54 02 B0 91 1E 52 BC 70 10 65 E6 00 B1 C6 37 C5 
+                    5F CE 0A 0F 08 D0 10 A7 7F 1C 18 C9 06 00 10 08 
+                    01 01 12 02 E0 B0 00
+                dedicatedNAS-MessageList: dedicatedNAS-MessageList ::= {
+                    
+                        7E 02 AC 94 B3 FE 02 7E 00 68 01 00 60 2E 01 01 
+                        C2 11 00 09 01 00 06 31 21 01 01 28 01 06 08 00 
+                        7D 07 00 FA 29 05 01 C0 A8 50 35 22 01 01 81 79 
+                        00 06 01 20 41 01 01 09 7B 00 27 80 80 21 10 02 
+                        00 00 10 81 06 08 08 08 08 83 06 08 08 04 04 00 
+                        0D 04 08 08 08 08 00 0D 04 08 08 04 04 00 10 02 
+                        05 DC 25 09 08 69 6E 74 65 72 6E 65 74 12 01
+                }
+            }
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+============================================================
+Packet #24 [UL_DCCH]
+Payload: 0c0... (len: 2 bytes)
+Decode successful
+UL-DCCH-Message ::= {
+    message: RRCReconfigurationComplete ::= {
+        rrc-TransactionIdentifier: 2
+        criticalExtensions: RRCReconfigurationComplete-IEs ::= {
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+============================================================
+Packet #25 [NGAP]
+Payload: 201d0027000003000a400560fffffffc005540020003... (len: 43 bytes)
+Decode successful
+SuccessfulOutcome ::= {
+    procedureCode: 29
+    criticality: 0 (reject)
+    value: SgNBModificationRequestAcknowledge ::= {
+        protocolIEs: ProtocolIE-Container ::= {
+            SgNBModificationRequestAcknowledge-IEs ::= {
+                id: 10
+                criticality: 1 (ignore)
+                value: <absent>
+            }
+            SgNBModificationRequestAcknowledge-IEs ::= {
+                id: 85
+                criticality: 1 (ignore)
+                value: <absent>
+            }
+            SgNBModificationRequestAcknowledge-IEs ::= {
+                id: 75
+                criticality: 1 (ignore)
+                value: <absent>
+            }
+        }
+    }
+}
+Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+
+[SUCCESS] Decoded successfully!
+  -> Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+============================================================
+Packet #26 [UL_DCCH]
+Payload: 3a0c3f0166fab16081bf00228c80... (len: 27 bytes)
+Decode successful
+UL-DCCH-Message ::= {
+    message: ULInformationTransfer ::= {
+        criticalExtensions: ULInformationTransfer-IEs ::= {
+            dedicatedNAS-Message: 
+                7E 02 CD F5 62 C1 03 7E 00 45 19 00 0B F2 00 F1 
+                10 02 00 C1 FF FF FF FC
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+============================================================
+Packet #27 [NGAP]
+Payload: 002e4042000004000a000560fffffffc00550002000300260019187e02cdf562c1037e004519000bf200f1100200c1... (len: 93 bytes)
+Decode successful
+InitiatingMessage ::= {
+    procedureCode: 46
+    criticality: 1 (ignore)
+    value: DeactivateTrace ::= {
+        protocolIEs: ProtocolIE-Container ::= {
+            DeactivateTraceIEs ::= {
+                id: 10
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            DeactivateTraceIEs ::= {
+                id: 85
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            DeactivateTraceIEs ::= {
+                id: 38
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            DeactivateTraceIEs ::= {
+                id: 121
+                criticality: 1 (ignore)
+                value: <absent>
+            }
+        }
+    }
+}
+Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+
+[SUCCESS] Decoded successfully!
+  -> Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+============================================================
+Packet #28 [DL_DCCH]
+Payload: 160... (len: 2 bytes)
+Decode successful
+DL-DCCH-Message ::= {
+    message: RRCRelease ::= {
+        rrc-TransactionIdentifier: 3
+        criticalExtensions: RRCRelease-IEs ::= {
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+============================================================
+Packet #29 [NGAP]
+Payload: 20290012000002000a40056... (len: 22 bytes)
+Decode successful
+SuccessfulOutcome ::= {
+    procedureCode: 41
+    criticality: 0 (reject)
+    value: EUTRANRCellResourceCoordinationResponse ::= {
+        protocolIEs: ProtocolIE-Container ::= {
+            EUTRANRCellResourceCoordinationResponse-IEs ::= {
+                id: 10
+                criticality: 1 (ignore)
+                value: <absent>
+            }
+            EUTRANRCellResourceCoordinationResponse-IEs ::= {
+                id: 85
+                criticality: 1 (ignore)
+                value: <absent>
+            }
+        }
+    }
+}
+Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+
+[SUCCESS] Decoded successfully!
+  -> Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+Parsing Trial-UE-Attach.log for ASN.1 Hex Dumps...
+
+============================================================
+Packet #1 [UL_CCCH]
+Payload: 127066b... (len: 6 bytes)
+Decode successful
+UL-CCCH-Message ::= {
+    message: RRCSetupRequest ::= {
+        rrcSetupRequest: RRCSetupRequest-IEs ::= {
+            ue-Identity: 27 06 6B A5 D6 (1 bit unused)
+            establishmentCause: 3 (mo-Signalling)
+            spare: 00 (7 bits unused)
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_1_UL_CCCH.xml
+============================================================
+Packet #2 [DL_CCCH]
+Payload: 204020a70560b80160023ca578e020cbcc00f80401507980020d6092cc0ca8040ffffffff800080023b842100001c0bb862080001c0b6907040290408008830048008d450441c8d4a22c08680043100039438840451000394388804310003943a8c04510003943b01802218099aa9a4a0f5abd8b36addcba4f7afe0c38b1e4cbb4000400d00814034040600d0181c034080800d028240340c0a00d0382c034100c00d04834034140e00d0583c034181000d068440341c1200d0784c034201400d08854034241600d0985c034281800d0a8640342c1a00d0b86c034301c00d0c874034341e00d0d87c034382000d0e8840343c2200d0f88c034402400d10894034442600d1189c034482800d128a40344c2a00d138ac034502c00d148b4034542e00d158bc034583000d168c40345c3200d178cc034603400d188d4034643600d198dc034683800d1a8e40346c3a00d1b8ec034703c00d1c8f403474... (len: 694 bytes)
+Decode successful
+DL-CCCH-Message ::= {
+    message: RRCSetup ::= {
+        rrc-TransactionIdentifier: 0
+        criticalExtensions: RRCSetup-IEs ::= {
+            radioBearerConfig: RadioBearerConfig ::= {
+                srb-ToAddModList: SRB-ToAddModList ::= {
+                    SRB-ToAddMod ::= {
+                        srb-Identity: 1
+                        pdcp-Config: PDCP-Config ::= {
+                            t-Reordering: 19 (ms200)
+                        }
+                    }
+                }
+            }
+            masterCellGroup: 
+                5C 00 B0 01 1E 52 BC 70 10 65 E6 00 7C 02 00 A8 
+                3C C0 01 06 B0 49 66 06 54 02 07 FF FF FF FC 00 
+                04 00 11 DC 21 08 00 00 E0 5D C3 10 40 00 0E 05 
+                B4 83 82 01 48 20 40 04 41 80 24 00 46 A2 82 20 
+                E4 6A 51 16 04 34 00 21 88 00 1C A1 C4 20 22 88 
+                00 1C A1 C4 40 21 88 00 1C A1 D4 60 22 88 00 1C 
+                A1 D8 0C 01 10 C0 4C D5 4D 25 07 AD 5E C5 9B 56 
+                EE 5D 27 BD 7F 06 1C 58 F2 65 DA 00 02 00 68 04 
+                0A 01 A0 20 30 06 80 C0 E0 1A 04 04 00 68 14 12 
+                01 A0 60 50 06 81 C1 60 1A 08 06 00 68 24 1A 01 
+                A0 A0 70 06 82 C1 E0 1A 0C 08 00 68 34 22 01 A0 
+                E0 90 06 83 C2 60 1A 10 0A 00 68 44 2A 01 A1 20 
+                B0 06 84 C2 E0 1A 14 0C 00 68 54 32 01 A1 60 D0 
+                06 85 C3 60 1A 18 0E 00 68 64 3A 01 A1 A0 F0 06 
+                86 C3 E0 1A 1C 10 00 68 74 42 01 A1 E1 10 06 87 
+                C4 60 1A 20 12 00 68 84 4A 01 A2 21 30 06 88 C4 
+                E0 1A 24 14 00 68 94 52 01 A2 61 50 06 89 C5 60 
+                1A 28 16 00 68 A4 5A 01 A2 A1 70 06 8A C5 E0 1A 
+                2C 18 00 68 B4 62 01 A2 E1 90 06 8B C6 60 1A 30 
+                1A 00 68 C4 6A 01 A3 21 B0 06 8C C6 E0 1A 34 1C 
+                00 68 D4 72 01 A3 61 D0 06 8D C7 60 1A 38 1E 00 
+                68 E4 7A 01 A3 A1 F0 06 8E C7 E0 1A 3C 20 00 68 
+                F4 82 01 A3 E2 10 06 8F C8 60 1A 40 22 00 69 04 
+                8A 01 A4 22 30 06 90 C8 E0 1A 44 24 00 69 14 92 
+                01 A4 62 50 06 91 C9 60 1A 48 26 00 69 24 9A 01 
+                A4 A2 70 06 92 C9 E0 1A 4C 28 00 69 34 A2 01 A4 
+                E2 90 06 93 CA 60 1A 50 2A 00 69 44 AA 01 A5 22 
+                B0 06 94 CA E0 1A 54 2C 00 69 54 B2 01 A5 62 D0 
+                06 95 CB 60 1A 58 2E 00 69 64 BA 01 A5 A2 F0 06 
+                96 CB E0 1A 5C 30 00 69 74 C2 01 A5 E3 12 36 97 
+                CC C8 DA 60 35 23 69 84 DC 8D A6 23 92 36 98 CE 
+                C8 DA 64 3D 23 69 94 FC 8D A6 64 12 26 99 D0 A8 
+                9A 68 44 22 69 A5 16 89 A6 A4 72 26 9A D2 28 9A 
+                6C 4A 22 69 B5 2E 89 B2 74 8C 30 25 A0 39 A2 B3 
+                C4 D0 10 08 5D 23 A0 09 24 A0 00 21 00 18 21 DA 
+                42 29 86 53 10 A6 31 4C 72 9C 70 04 A0 70 00 01 
+                80 02 7B 60 00 02 02 00 00 0F 40 00 00 86 54 14 
+                01 88 AA 8A 00 86 00 60 9D 50 03 F1 00 15 06 01 
+                30 10 10 C4 00 0E 20 02 A1 C0 06 04 02 28 80 01 
+                C4 00 54 38 00 C0 C0 43 10 00 38 80 0A 87 40 18 
+                20 08 A2 00 07 10 01 50 E8 00 40 00 00 04 10 C0 
+                40 80 C1 00 E0 B8 00 7E 50 60 00 00 00 80 20 00 
+                40 30 00 40 16 80 00 04 80 D0 66 38 07 E0 69 00
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_2_DL_CCCH.xml
+============================================================
+Packet #3 [UL_DCCH]
+Payload: 100405df80105e400340403c44044... (len: 28 bytes)
+Decode successful
+UL-DCCH-Message ::= {
+    message: RRCSetupComplete ::= {
+        rrc-TransactionIdentifier: 0
+        criticalExtensions: RRCSetupComplete-IEs ::= {
+            selectedPLMN-Identity: 1
+            dedicatedNAS-Message: 
+                7E 00 41 79 00 0D 01 00 F1 10 11 11 00 00 10 32 
+                54 10 12 2E 02 E0 E0
+            nonCriticalExtension: RRCSetupComplete-v1610-IEs ::= {
+                nonCriticalExtension: RRCSetupComplete-v1690-IEs ::= {
+                    ul-RRC-Segmentation-r16: 0 (true)
+                }
+            }
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_3_UL_DCCH.xml
+============================================================
+Packet #4 [NGAP]
+Payload: 000f404200000500550002000300260018177e004179000d0100f1101111000010325410122e02e0e00079000f4000f110000007421000f11000947d005a4001180070400100... (len: 139 bytes)
+Decode successful
+InitiatingMessage ::= {
+    procedureCode: 15
+    criticality: 1 (ignore)
+    value: CellActivationRequest ::= {
+        protocolIEs: ProtocolIE-Container ::= {
+            CellActivationRequest-IEs ::= {
+                id: 85
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            CellActivationRequest-IEs ::= {
+                id: 38
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            CellActivationRequest-IEs ::= {
+                id: 121
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            CellActivationRequest-IEs ::= {
+                id: 90
+                criticality: 1 (ignore)
+                value: <absent>
+            }
+            CellActivationRequest-IEs ::= {
+                id: 112
+                criticality: 1 (ignore)
+                value: <absent>
+            }
+        }
+    }
+}
+Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_4_NGAP.xml
+  -> Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+============================================================
+Packet #5 [DL_DCCH]
+Payload: 2a854fc00ac0204000043af064c0f8a4e5e1addc94c773... (len: 45 bytes)
+Decode successful
+DL-DCCH-Message ::= {
+    message: DLInformationTransfer ::= {
+        rrc-TransactionIdentifier: 1
+        criticalExtensions: DLInformationTransfer-IEs ::= {
+            dedicatedNAS-Message: 
+                7E 00 56 01 02 00 00 21 D7 83 26 07 C5 27 2F 0D 
+                6E E4 A6 3B 9A 35 90 83 20 10 EC 4B 44 93 5B 18 
+                80 00 82 C4 E6 FF 9C B6 90 FB
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_5_DL_DCCH.xml
+============================================================
+Packet #6 [UL_DCCH]
+Payload: 3a0abf002b96884bbcb9d79ba... (len: 24 bytes)
+Decode successful
+UL-DCCH-Message ::= {
+    message: ULInformationTransfer ::= {
+        criticalExtensions: ULInformationTransfer-IEs ::= {
+            dedicatedNAS-Message: 
+                7E 00 57 2D 10 97 79 73 AF 37 44 9C 8C 43 AD D8 
+                DD 84 4F 17 63
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_6_UL_DCCH.xml
+============================================================
+Packet #7 [NGAP]
+Payload: 002e403f000004000a000560fffffffc00550002000300260016157e00572d10977973af37449c8c43add8dd844f17630079400f4000f1100... (len: 112 bytes)
+Decode successful
+InitiatingMessage ::= {
+    procedureCode: 46
+    criticality: 1 (ignore)
+    value: DeactivateTrace ::= {
+        protocolIEs: ProtocolIE-Container ::= {
+            DeactivateTraceIEs ::= {
+                id: 10
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            DeactivateTraceIEs ::= {
+                id: 85
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            DeactivateTraceIEs ::= {
+                id: 38
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            DeactivateTraceIEs ::= {
+                id: 121
+                criticality: 1 (ignore)
+                value: <absent>
+            }
+        }
+    }
+}
+Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_7_NGAP.xml
+  -> Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+============================================================
+Packet #8 [DL_DCCH]
+Payload: 2c824fc075535730400fc0... (len: 21 bytes)
+Decode successful
+DL-DCCH-Message ::= {
+    message: DLInformationTransfer ::= {
+        rrc-TransactionIdentifier: 2
+        criticalExtensions: DLInformationTransfer-IEs ::= {
+            dedicatedNAS-Message: 
+                7E 03 AA 9A B9 82 00 7E 00 5D 01 01 02 E0 E0 36 
+                01 02
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_8_DL_DCCH.xml
+============================================================
+Packet #9 [UL_DCCH]
+Payload: 3a17bf0271c04ef0003f002f3880113f0020bc8006808078880... (len: 50 bytes)
+Decode successful
+UL-DCCH-Message ::= {
+    message: ULInformationTransfer ::= {
+        criticalExtensions: ULInformationTransfer-IEs ::= {
+            dedicatedNAS-Message: 
+                7E 04 E3 80 9D E0 00 7E 00 5E 71 00 22 7E 00 41 
+                79 00 0D 01 00 F1 10 11 11 00 00 10 32 54 10 12 
+                10 03 04 00 10 2E 02 E0 E0 18 01 01 53 01 01
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_9_UL_DCCH.xml
+============================================================
+Packet #10 [NGAP]
+Payload: 002e4059000004000a000560fffffffc005500020003002600302f7e04e3809de0007e005e7100227e004179000d0100f11011110000103254101210030400102e02e0e01801015301010079400f4000f110000007421000f11000947d000e00808c000007000a000560fffffffc005500020003001c00070000f1100200c10000000200010077000918000c000000000000005e0020a03566124ce9267c9ec9ede200c5452e7f7654923465fda6c3db83b29d5fe948002... (len: 366 bytes)
+Decode successful
+InitiatingMessage ::= {
+    procedureCode: 46
+    criticality: 1 (ignore)
+    value: DeactivateTrace ::= {
+        protocolIEs: ProtocolIE-Container ::= {
+            DeactivateTraceIEs ::= {
+                id: 10
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            DeactivateTraceIEs ::= {
+                id: 85
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            DeactivateTraceIEs ::= {
+                id: 38
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            DeactivateTraceIEs ::= {
+                id: 121
+                criticality: 1 (ignore)
+                value: <absent>
+            }
+        }
+    }
+}
+Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_10_NGAP.xml
+  -> Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+============================================================
+Packet #11 [UL_CCCH]
+Payload: 3789aaa2ea8e395abfd1d5216e09a7222bbf2772f19fb3924... (len: 48 bytes)
+Decode successful
+UL-CCCH-Message ::= {
+    message: RRCResumeRequest ::= {
+        rrcResumeRequest: RRCResumeRequest-IEs ::= {
+            resumeIdentity: BC 4D 55
+            resumeMAC-I: 17 54
+            resumeCause: 7 (mo-SMS)
+            spare: 00 (7 bits unused)
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_11_UL_CCCH.xml
+============================================================
+Packet #12 [DL_DCCH]
+Payload: 2608... (len: 3 bytes)
+Decode successful
+DL-DCCH-Message ::= {
+    message: SecurityModeCommand ::= {
+        rrc-TransactionIdentifier: 3
+        criticalExtensions: SecurityModeCommand-IEs ::= {
+            securityConfigSMC: SecurityConfigSMC ::= {
+                securityAlgorithmConfig: SecurityAlgorithmConfig ::= {
+                    cipheringAlgorithm: 1 (nea1)
+                    integrityProtAlgorithm: 1 (nia1)
+                }
+            }
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_12_DL_DCCH.xml
+============================================================
+Packet #13 [UL_DCCH]
+Payload: 2e0... (len: 2 bytes)
+Decode successful
+UL-DCCH-Message ::= {
+    message: SecurityModeComplete ::= {
+        rrc-TransactionIdentifier: 3
+        criticalExtensions: SecurityModeComplete-IEs ::= {
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_13_UL_DCCH.xml
+============================================================
+Packet #14 [DL_DCCH]
+Payload: 300201a0030... (len: 10 bytes)
+Decode successful
+DL-DCCH-Message ::= {
+    message: UECapabilityEnquiry ::= {
+        rrc-TransactionIdentifier: 0
+        criticalExtensions: UECapabilityEnquiry-IEs ::= {
+            ue-CapabilityRAT-RequestList: UE-CapabilityRAT-RequestList ::= {
+                UE-CapabilityRAT-Request ::= {
+                    rat-Type: 0 (nr)
+                    capabilityRequestFilter: 80 0C 04 C8 08 20
+                }
+            }
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_14_DL_DCCH.xml
+============================================================
+Packet #15 [UL_DCCH]
+Payload: 4882202b7868cce810140120f0500701980900e05a02df8d8386a80002c00b0000040101262e000307e1a8018dff800101000b8014c5c4c900000109c00356830001801e81c790e7c00008010001003c2e007fe003801ff8004... (len: 178 bytes)
+Decode successful
+UL-DCCH-Message ::= {
+    message: UECapabilityInformation ::= {
+        rrc-TransactionIdentifier: 0
+        criticalExtensions: UECapabilityInformation-IEs ::= {
+            ue-CapabilityRAT-ContainerList: UE-CapabilityRAT-ContainerList ::= {
+                UE-CapabilityRAT-Container ::= {
+                    rat-Type: 0 (nr)
+                    ue-CapabilityRAT-Container: 
+                        E1 A3 33 A0 40 50 04 83 C1 40 1C 06 60 24 03 81 
+                        68 0B 7E 36 0E 1A A0 00 0B 00 2C 00 00 10 04 04 
+                        98 B8 00 0C 1F 86 A0 06 37 FE 00 04 04 00 2E 00 
+                        53 17 13 24 00 00 04 27 00 0D 5A 0C 00 06 00 7A 
+                        07 1E 43 9F 00 00 20 04 00 04 00 F0 B8 01 FF 80 
+                        0E 00 7F E0 01 11 00 00 1B 2F 00 02 F0 00 00 04 
+                        00 E2 60 00 00 00 03 01 32 02 09 48 10 00 01 C0 
+                        20 27 00 C0 48 16 10 00 64 00 00 1F 00 00 00 00 
+                        00 00 07 2A 28 00 08 00 00 4B 2C A0 01 E5 50 51 
+                        74 00 0B 40 0F 00 01 00 0C 80 00 00 00 01 00 00 
+                        00 04 00 80 10 24 42 55 00 00 B3 12 60
+                }
+            }
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_15_UL_DCCH.xml
+============================================================
+Packet #16 [NGAP]
+Payload: 002c4080cc000003000a000560fffffffc00550002000300754080b580b3040580880ade1a333a040500483c1401c0660240381680b7e360e1aa0000b002c000010040498b8000c1f86a00637fe000404002e005317132400000427000d5a0c0006007a071e439f000... (len: 209 bytes)
+[FAILED] Decode failed: Invalid APER encoding / Decode failed (Decode failed after 0 bits)
+============================================================
+Packet #17 [DL_DCCH]
+Payload: 2a866fc05a706b0b402fc00840202ee0017e401e220040183ffffff... (len: 54 bytes)
+Decode successful
+DL-DCCH-Message ::= {
+    message: DLInformationTransfer ::= {
+        rrc-TransactionIdentifier: 1
+        criticalExtensions: DLInformationTransfer-IEs ::= {
+            dedicatedNAS-Message: 
+                7E 02 D3 83 58 5A 01 7E 00 42 01 01 77 00 0B F2 
+                00 F1 10 02 00 C1 FF FF FF FC 54 07 20 00 F1 10 
+                00 94 7D 15 02 01 01 31 02 01 01 21 03 05 00 01 
+                5E 01 05
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_17_DL_DCCH.xml
+============================================================
+Packet #18 [NGAP]
+Payload: 200e0012000002000a40056... (len: 22 bytes)
+Decode successful
+SuccessfulOutcome ::= {
+    procedureCode: 14
+    criticality: 0 (reject)
+    value: <absent>
+}
+Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_18_NGAP.xml
+  -> Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+============================================================
+Packet #19 [UL_DCCH]
+Payload: 3a053f014bb62e... (len: 13 bytes)
+Decode successful
+UL-DCCH-Message ::= {
+    message: ULInformationTransfer ::= {
+        criticalExtensions: ULInformationTransfer-IEs ::= {
+            dedicatedNAS-Message: 7E 02 97 6C 5D 7A 01 7E 00 43
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_19_UL_DCCH.xml
+============================================================
+Packet #20 [NGAP]
+Payload: 002e4034000004000a000560fffffffc0055000200030026000b0a7e0... (len: 56 bytes)
+Decode successful
+InitiatingMessage ::= {
+    procedureCode: 46
+    criticality: 1 (ignore)
+    value: DeactivateTrace ::= {
+        protocolIEs: ProtocolIE-Container ::= {
+            DeactivateTraceIEs ::= {
+                id: 10
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            DeactivateTraceIEs ::= {
+                id: 85
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            DeactivateTraceIEs ::= {
+                id: 38
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            DeactivateTraceIEs ::= {
+                id: 121
+                criticality: 1 (ignore)
+                value: <absent>
+            }
+        }
+    }
+}
+Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_20_NGAP.xml
+  -> Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+============================================================
+Packet #21 [UL_DCCH]
+Payload: 3a1dbf0175c48ba9013f0033808015970080e0ffffc8d8bd801040401088008... (len: 62 bytes)
+Decode successful
+UL-DCCH-Message ::= {
+    message: ULInformationTransfer ::= {
+        criticalExtensions: ULInformationTransfer-IEs ::= {
+            dedicatedNAS-Message: 
+                7E 02 EB 89 17 52 02 7E 00 67 01 00 2B 2E 01 01 
+                C1 FF FF 91 B1 7B 00 20 80 80 21 10 01 00 00 10 
+                81 06 00 00 00 00 83 06 00 00 00 00 00 0A 00 00 
+                10 00 00 0D 00 00 11 00 12 01 81
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_21_UL_DCCH.xml
+============================================================
+Packet #22 [NGAP]
+Payload: 002e4065000004000a000560fffffffc0055000200030026003c3b7e02eb891752027e006701002b2e0101c1ffff91b17b00208080211001000010810600000000830600000000000a00001000000d000011001201810079400f4000f110000007421000f11000947d001d0080d0000004000a000560fffffffc005500020003004a0080ab0040016f7e02ac94b3fe027e00680100602e0101c211000901000... (len: 318 bytes)
+Decode successful
+InitiatingMessage ::= {
+    procedureCode: 46
+    criticality: 1 (ignore)
+    value: DeactivateTrace ::= {
+        protocolIEs: ProtocolIE-Container ::= {
+            DeactivateTraceIEs ::= {
+                id: 10
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            DeactivateTraceIEs ::= {
+                id: 85
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            DeactivateTraceIEs ::= {
+                id: 38
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            DeactivateTraceIEs ::= {
+                id: 121
+                criticality: 1 (ignore)
+                value: <absent>
+            }
+        }
+    }
+}
+Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_22_NGAP.xml
+  -> Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+============================================================
+Packet #23 [DL_DCCH]
+Payload: 048a814530268048008d78fc1d404ea80561223ca578e020cbcc01638c6f8abf9c141e11a0214efe3831920c00201002022405c1600006f7e02ac94b3fe027e00680100602e0101c211000901000631210101280... (len: 167 bytes)
+Decode successful
+DL-DCCH-Message ::= {
+    message: RRCReconfiguration ::= {
+        rrc-TransactionIdentifier: 2
+        criticalExtensions: RRCReconfiguration-IEs ::= {
+            radioBearerConfig: RadioBearerConfig ::= {
+                srb-ToAddModList: SRB-ToAddModList ::= {
+                    SRB-ToAddMod ::= {
+                        srb-Identity: 2
+                        pdcp-Config: PDCP-Config ::= {
+                            t-Reordering: 19 (ms200)
+                        }
+                    }
+                }
+                drb-ToAddModList: DRB-ToAddModList ::= {
+                    DRB-ToAddMod ::= {
+                        cnAssociation: SDAP-Config ::= {
+                            pdu-Session: 1
+                            sdap-HeaderDL: 0 (present)
+                            sdap-HeaderUL: 0 (present)
+                            defaultDRB: TRUE
+                            mappedQoS-FlowsToAdd: mappedQoS-FlowsToAdd ::= {
+                                1
+                            }
+                        }
+                        drb-Identity: 4
+                        pdcp-Config: PDCP-Config ::= {
+                            drb: drb ::= {
+                                discardTimer: 15 (infinity)
+                                pdcp-SN-SizeUL: 1 (len18bits)
+                                pdcp-SN-SizeDL: 1 (len18bits)
+                                headerCompression: <present>
+                            }
+                            t-Reordering: 14 (ms100)
+                        }
+                    }
+                }
+            }
+            nonCriticalExtension: RRCReconfiguration-v1530-IEs ::= {
+                masterCellGroup: 
+                    54 02 B0 91 1E 52 BC 70 10 65 E6 00 B1 C6 37 C5 
+                    5F CE 0A 0F 08 D0 10 A7 7F 1C 18 C9 06 00 10 08 
+                    01 01 12 02 E0 B0 00
+                dedicatedNAS-MessageList: dedicatedNAS-MessageList ::= {
+                    
+                        7E 02 AC 94 B3 FE 02 7E 00 68 01 00 60 2E 01 01 
+                        C2 11 00 09 01 00 06 31 21 01 01 28 01 06 08 00 
+                        7D 07 00 FA 29 05 01 C0 A8 50 35 22 01 01 81 79 
+                        00 06 01 20 41 01 01 09 7B 00 27 80 80 21 10 02 
+                        00 00 10 81 06 08 08 08 08 83 06 08 08 04 04 00 
+                        0D 04 08 08 08 08 00 0D 04 08 08 04 04 00 10 02 
+                        05 DC 25 09 08 69 6E 74 65 72 6E 65 74 12 01
+                }
+            }
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_23_DL_DCCH.xml
+============================================================
+Packet #24 [UL_DCCH]
+Payload: 0c0... (len: 2 bytes)
+Decode successful
+UL-DCCH-Message ::= {
+    message: RRCReconfigurationComplete ::= {
+        rrc-TransactionIdentifier: 2
+        criticalExtensions: RRCReconfigurationComplete-IEs ::= {
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_24_UL_DCCH.xml
+============================================================
+Packet #25 [NGAP]
+Payload: 201d0027000003000a400560fffffffc005540020003... (len: 43 bytes)
+Decode successful
+SuccessfulOutcome ::= {
+    procedureCode: 29
+    criticality: 0 (reject)
+    value: SgNBModificationRequestAcknowledge ::= {
+        protocolIEs: ProtocolIE-Container ::= {
+            SgNBModificationRequestAcknowledge-IEs ::= {
+                id: 10
+                criticality: 1 (ignore)
+                value: <absent>
+            }
+            SgNBModificationRequestAcknowledge-IEs ::= {
+                id: 85
+                criticality: 1 (ignore)
+                value: <absent>
+            }
+            SgNBModificationRequestAcknowledge-IEs ::= {
+                id: 75
+                criticality: 1 (ignore)
+                value: <absent>
+            }
+        }
+    }
+}
+Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_25_NGAP.xml
+  -> Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+============================================================
+Packet #26 [UL_DCCH]
+Payload: 3a0c3f0166fab16081bf00228c80... (len: 27 bytes)
+Decode successful
+UL-DCCH-Message ::= {
+    message: ULInformationTransfer ::= {
+        criticalExtensions: ULInformationTransfer-IEs ::= {
+            dedicatedNAS-Message: 
+                7E 02 CD F5 62 C1 03 7E 00 45 19 00 0B F2 00 F1 
+                10 02 00 C1 FF FF FF FC
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_26_UL_DCCH.xml
+============================================================
+Packet #27 [NGAP]
+Payload: 002e4042000004000a000560fffffffc00550002000300260019187e02cdf562c1037e004519000bf200f1100200c1... (len: 93 bytes)
+Decode successful
+InitiatingMessage ::= {
+    procedureCode: 46
+    criticality: 1 (ignore)
+    value: DeactivateTrace ::= {
+        protocolIEs: ProtocolIE-Container ::= {
+            DeactivateTraceIEs ::= {
+                id: 10
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            DeactivateTraceIEs ::= {
+                id: 85
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            DeactivateTraceIEs ::= {
+                id: 38
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            DeactivateTraceIEs ::= {
+                id: 121
+                criticality: 1 (ignore)
+                value: <absent>
+            }
+        }
+    }
+}
+Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_27_NGAP.xml
+  -> Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+============================================================
+Packet #28 [DL_DCCH]
+Payload: 160... (len: 2 bytes)
+Decode successful
+DL-DCCH-Message ::= {
+    message: RRCRelease ::= {
+        rrc-TransactionIdentifier: 3
+        criticalExtensions: RRCRelease-IEs ::= {
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_28_DL_DCCH.xml
+============================================================
+Packet #29 [NGAP]
+Payload: 20290012000002000a40056... (len: 22 bytes)
+Decode successful
+SuccessfulOutcome ::= {
+    procedureCode: 41
+    criticality: 0 (reject)
+    value: EUTRANRCellResourceCoordinationResponse ::= {
+        protocolIEs: ProtocolIE-Container ::= {
+            EUTRANRCellResourceCoordinationResponse-IEs ::= {
+                id: 10
+                criticality: 1 (ignore)
+                value: <absent>
+            }
+            EUTRANRCellResourceCoordinationResponse-IEs ::= {
+                id: 85
+                criticality: 1 (ignore)
+                value: <absent>
+            }
+        }
+    }
+}
+Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_29_NGAP.xml
+  -> Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+Parsing Trial-UE-Attach.log for ASN.1 Hex Dumps...
+
+============================================================
+Packet #1 [UL_CCCH]
+Payload: 127066b... (len: 6 bytes)
+Decode successful
+UL-CCCH-Message ::= {
+    message: RRCSetupRequest ::= {
+        rrcSetupRequest: RRCSetupRequest-IEs ::= {
+            ue-Identity: 27 06 6B A5 D6 (1 bit unused)
+            establishmentCause: 3 (mo-Signalling)
+            spare: 00 (7 bits unused)
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_1_UL_CCCH.xml
+============================================================
+Packet #2 [DL_CCCH]
+Payload: 204020a70560b80160023ca578e020cbcc00f80401507980020d6092cc0ca8040ffffffff800080023b842100001c0bb862080001c0b6907040290408008830048008d450441c8d4a22c08680043100039438840451000394388804310003943a8c04510003943b01802218099aa9a4a0f5abd8b36addcba4f7afe0c38b1e4cbb4000400d00814034040600d0181c034080800d028240340c0a00d0382c034100c00d04834034140e00d0583c034181000d068440341c1200d0784c034201400d08854034241600d0985c034281800d0a8640342c1a00d0b86c034301c00d0c874034341e00d0d87c034382000d0e8840343c2200d0f88c034402400d10894034442600d1189c034482800d128a40344c2a00d138ac034502c00d148b4034542e00d158bc034583000d168c40345c3200d178cc034603400d188d4034643600d198dc034683800d1a8e40346c3a00d1b8ec034703c00d1c8f403474... (len: 694 bytes)
+Decode successful
+DL-CCCH-Message ::= {
+    message: RRCSetup ::= {
+        rrc-TransactionIdentifier: 0
+        criticalExtensions: RRCSetup-IEs ::= {
+            radioBearerConfig: RadioBearerConfig ::= {
+                srb-ToAddModList: SRB-ToAddModList ::= {
+                    SRB-ToAddMod ::= {
+                        srb-Identity: 1
+                        pdcp-Config: PDCP-Config ::= {
+                            t-Reordering: 19 (ms200)
+                        }
+                    }
+                }
+            }
+            masterCellGroup: 
+                5C 00 B0 01 1E 52 BC 70 10 65 E6 00 7C 02 00 A8 
+                3C C0 01 06 B0 49 66 06 54 02 07 FF FF FF FC 00 
+                04 00 11 DC 21 08 00 00 E0 5D C3 10 40 00 0E 05 
+                B4 83 82 01 48 20 40 04 41 80 24 00 46 A2 82 20 
+                E4 6A 51 16 04 34 00 21 88 00 1C A1 C4 20 22 88 
+                00 1C A1 C4 40 21 88 00 1C A1 D4 60 22 88 00 1C 
+                A1 D8 0C 01 10 C0 4C D5 4D 25 07 AD 5E C5 9B 56 
+                EE 5D 27 BD 7F 06 1C 58 F2 65 DA 00 02 00 68 04 
+                0A 01 A0 20 30 06 80 C0 E0 1A 04 04 00 68 14 12 
+                01 A0 60 50 06 81 C1 60 1A 08 06 00 68 24 1A 01 
+                A0 A0 70 06 82 C1 E0 1A 0C 08 00 68 34 22 01 A0 
+                E0 90 06 83 C2 60 1A 10 0A 00 68 44 2A 01 A1 20 
+                B0 06 84 C2 E0 1A 14 0C 00 68 54 32 01 A1 60 D0 
+                06 85 C3 60 1A 18 0E 00 68 64 3A 01 A1 A0 F0 06 
+                86 C3 E0 1A 1C 10 00 68 74 42 01 A1 E1 10 06 87 
+                C4 60 1A 20 12 00 68 84 4A 01 A2 21 30 06 88 C4 
+                E0 1A 24 14 00 68 94 52 01 A2 61 50 06 89 C5 60 
+                1A 28 16 00 68 A4 5A 01 A2 A1 70 06 8A C5 E0 1A 
+                2C 18 00 68 B4 62 01 A2 E1 90 06 8B C6 60 1A 30 
+                1A 00 68 C4 6A 01 A3 21 B0 06 8C C6 E0 1A 34 1C 
+                00 68 D4 72 01 A3 61 D0 06 8D C7 60 1A 38 1E 00 
+                68 E4 7A 01 A3 A1 F0 06 8E C7 E0 1A 3C 20 00 68 
+                F4 82 01 A3 E2 10 06 8F C8 60 1A 40 22 00 69 04 
+                8A 01 A4 22 30 06 90 C8 E0 1A 44 24 00 69 14 92 
+                01 A4 62 50 06 91 C9 60 1A 48 26 00 69 24 9A 01 
+                A4 A2 70 06 92 C9 E0 1A 4C 28 00 69 34 A2 01 A4 
+                E2 90 06 93 CA 60 1A 50 2A 00 69 44 AA 01 A5 22 
+                B0 06 94 CA E0 1A 54 2C 00 69 54 B2 01 A5 62 D0 
+                06 95 CB 60 1A 58 2E 00 69 64 BA 01 A5 A2 F0 06 
+                96 CB E0 1A 5C 30 00 69 74 C2 01 A5 E3 12 36 97 
+                CC C8 DA 60 35 23 69 84 DC 8D A6 23 92 36 98 CE 
+                C8 DA 64 3D 23 69 94 FC 8D A6 64 12 26 99 D0 A8 
+                9A 68 44 22 69 A5 16 89 A6 A4 72 26 9A D2 28 9A 
+                6C 4A 22 69 B5 2E 89 B2 74 8C 30 25 A0 39 A2 B3 
+                C4 D0 10 08 5D 23 A0 09 24 A0 00 21 00 18 21 DA 
+                42 29 86 53 10 A6 31 4C 72 9C 70 04 A0 70 00 01 
+                80 02 7B 60 00 02 02 00 00 0F 40 00 00 86 54 14 
+                01 88 AA 8A 00 86 00 60 9D 50 03 F1 00 15 06 01 
+                30 10 10 C4 00 0E 20 02 A1 C0 06 04 02 28 80 01 
+                C4 00 54 38 00 C0 C0 43 10 00 38 80 0A 87 40 18 
+                20 08 A2 00 07 10 01 50 E8 00 40 00 00 04 10 C0 
+                40 80 C1 00 E0 B8 00 7E 50 60 00 00 00 80 20 00 
+                40 30 00 40 16 80 00 04 80 D0 66 38 07 E0 69 00
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_2_DL_CCCH.xml
+============================================================
+Packet #3 [UL_DCCH]
+Payload: 100405df80105e400340403c44044... (len: 28 bytes)
+Decode successful
+UL-DCCH-Message ::= {
+    message: RRCSetupComplete ::= {
+        rrc-TransactionIdentifier: 0
+        criticalExtensions: RRCSetupComplete-IEs ::= {
+            selectedPLMN-Identity: 1
+            dedicatedNAS-Message: 
+                7E 00 41 79 00 0D 01 00 F1 10 11 11 00 00 10 32 
+                54 10 12 2E 02 E0 E0
+            nonCriticalExtension: RRCSetupComplete-v1610-IEs ::= {
+                nonCriticalExtension: RRCSetupComplete-v1690-IEs ::= {
+                    ul-RRC-Segmentation-r16: 0 (true)
+                }
+            }
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_3_UL_DCCH.xml
+============================================================
+Packet #4 [NGAP]
+Payload: 000f404200000500550002000300260018177e004179000d0100f1101111000010325410122e02e0e00079000f4000f110000007421000f11000947d005a4001180070400100... (len: 139 bytes)
+Decode successful
+InitiatingMessage ::= {
+    procedureCode: 15
+    criticality: 1 (ignore)
+    value: CellActivationRequest ::= {
+        protocolIEs: ProtocolIE-Container ::= {
+            CellActivationRequest-IEs ::= {
+                id: 85
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            CellActivationRequest-IEs ::= {
+                id: 38
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            CellActivationRequest-IEs ::= {
+                id: 121
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            CellActivationRequest-IEs ::= {
+                id: 90
+                criticality: 1 (ignore)
+                value: <absent>
+            }
+            CellActivationRequest-IEs ::= {
+                id: 112
+                criticality: 1 (ignore)
+                value: <absent>
+            }
+        }
+    }
+}
+Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_4_NGAP.xml
+  -> Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+============================================================
+Packet #5 [DL_DCCH]
+Payload: 2a854fc00ac0204000043af064c0f8a4e5e1addc94c773... (len: 45 bytes)
+Decode successful
+DL-DCCH-Message ::= {
+    message: DLInformationTransfer ::= {
+        rrc-TransactionIdentifier: 1
+        criticalExtensions: DLInformationTransfer-IEs ::= {
+            dedicatedNAS-Message: 
+                7E 00 56 01 02 00 00 21 D7 83 26 07 C5 27 2F 0D 
+                6E E4 A6 3B 9A 35 90 83 20 10 EC 4B 44 93 5B 18 
+                80 00 82 C4 E6 FF 9C B6 90 FB
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_5_DL_DCCH.xml
+============================================================
+Packet #6 [UL_DCCH]
+Payload: 3a0abf002b96884bbcb9d79ba... (len: 24 bytes)
+Decode successful
+UL-DCCH-Message ::= {
+    message: ULInformationTransfer ::= {
+        criticalExtensions: ULInformationTransfer-IEs ::= {
+            dedicatedNAS-Message: 
+                7E 00 57 2D 10 97 79 73 AF 37 44 9C 8C 43 AD D8 
+                DD 84 4F 17 63
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_6_UL_DCCH.xml
+============================================================
+Packet #7 [NGAP]
+Payload: 002e403f000004000a000560fffffffc00550002000300260016157e00572d10977973af37449c8c43add8dd844f17630079400f4000f1100... (len: 112 bytes)
+Decode successful
+InitiatingMessage ::= {
+    procedureCode: 46
+    criticality: 1 (ignore)
+    value: DeactivateTrace ::= {
+        protocolIEs: ProtocolIE-Container ::= {
+            DeactivateTraceIEs ::= {
+                id: 10
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            DeactivateTraceIEs ::= {
+                id: 85
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            DeactivateTraceIEs ::= {
+                id: 38
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            DeactivateTraceIEs ::= {
+                id: 121
+                criticality: 1 (ignore)
+                value: <absent>
+            }
+        }
+    }
+}
+Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_7_NGAP.xml
+  -> Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+============================================================
+Packet #8 [DL_DCCH]
+Payload: 2c824fc075535730400fc0... (len: 21 bytes)
+Decode successful
+DL-DCCH-Message ::= {
+    message: DLInformationTransfer ::= {
+        rrc-TransactionIdentifier: 2
+        criticalExtensions: DLInformationTransfer-IEs ::= {
+            dedicatedNAS-Message: 
+                7E 03 AA 9A B9 82 00 7E 00 5D 01 01 02 E0 E0 36 
+                01 02
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_8_DL_DCCH.xml
+============================================================
+Packet #9 [UL_DCCH]
+Payload: 3a17bf0271c04ef0003f002f3880113f0020bc8006808078880... (len: 50 bytes)
+Decode successful
+UL-DCCH-Message ::= {
+    message: ULInformationTransfer ::= {
+        criticalExtensions: ULInformationTransfer-IEs ::= {
+            dedicatedNAS-Message: 
+                7E 04 E3 80 9D E0 00 7E 00 5E 71 00 22 7E 00 41 
+                79 00 0D 01 00 F1 10 11 11 00 00 10 32 54 10 12 
+                10 03 04 00 10 2E 02 E0 E0 18 01 01 53 01 01
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_9_UL_DCCH.xml
+============================================================
+Packet #10 [NGAP]
+Payload: 002e4059000004000a000560fffffffc005500020003002600302f7e04e3809de0007e005e7100227e004179000d0100f11011110000103254101210030400102e02e0e01801015301010079400f4000f110000007421000f11000947d000e00808c000007000a000560fffffffc005500020003001c00070000f1100200c10000000200010077000918000c000000000000005e0020a03566124ce9267c9ec9ede200c5452e7f7654923465fda6c3db83b29d5fe948002... (len: 366 bytes)
+Decode successful
+InitiatingMessage ::= {
+    procedureCode: 46
+    criticality: 1 (ignore)
+    value: DeactivateTrace ::= {
+        protocolIEs: ProtocolIE-Container ::= {
+            DeactivateTraceIEs ::= {
+                id: 10
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            DeactivateTraceIEs ::= {
+                id: 85
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            DeactivateTraceIEs ::= {
+                id: 38
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            DeactivateTraceIEs ::= {
+                id: 121
+                criticality: 1 (ignore)
+                value: <absent>
+            }
+        }
+    }
+}
+Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_10_NGAP.xml
+  -> Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+============================================================
+Packet #11 [UL_CCCH]
+Payload: 3789aaa2ea8e395abfd1d5216e09a7222bbf2772f19fb3924... (len: 48 bytes)
+Decode successful
+UL-CCCH-Message ::= {
+    message: RRCResumeRequest ::= {
+        rrcResumeRequest: RRCResumeRequest-IEs ::= {
+            resumeIdentity: BC 4D 55
+            resumeMAC-I: 17 54
+            resumeCause: 7 (mo-SMS)
+            spare: 00 (7 bits unused)
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_11_UL_CCCH.xml
+============================================================
+Packet #12 [DL_DCCH]
+Payload: 2608... (len: 3 bytes)
+Decode successful
+DL-DCCH-Message ::= {
+    message: SecurityModeCommand ::= {
+        rrc-TransactionIdentifier: 3
+        criticalExtensions: SecurityModeCommand-IEs ::= {
+            securityConfigSMC: SecurityConfigSMC ::= {
+                securityAlgorithmConfig: SecurityAlgorithmConfig ::= {
+                    cipheringAlgorithm: 1 (nea1)
+                    integrityProtAlgorithm: 1 (nia1)
+                }
+            }
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_12_DL_DCCH.xml
+============================================================
+Packet #13 [UL_DCCH]
+Payload: 2e0... (len: 2 bytes)
+Decode successful
+UL-DCCH-Message ::= {
+    message: SecurityModeComplete ::= {
+        rrc-TransactionIdentifier: 3
+        criticalExtensions: SecurityModeComplete-IEs ::= {
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_13_UL_DCCH.xml
+============================================================
+Packet #14 [DL_DCCH]
+Payload: 300201a0030... (len: 10 bytes)
+Decode successful
+DL-DCCH-Message ::= {
+    message: UECapabilityEnquiry ::= {
+        rrc-TransactionIdentifier: 0
+        criticalExtensions: UECapabilityEnquiry-IEs ::= {
+            ue-CapabilityRAT-RequestList: UE-CapabilityRAT-RequestList ::= {
+                UE-CapabilityRAT-Request ::= {
+                    rat-Type: 0 (nr)
+                    capabilityRequestFilter: 80 0C 04 C8 08 20
+                }
+            }
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_14_DL_DCCH.xml
+============================================================
+Packet #15 [UL_DCCH]
+Payload: 4882202b7868cce810140120f0500701980900e05a02df8d8386a80002c00b0000040101262e000307e1a8018dff800101000b8014c5c4c900000109c00356830001801e81c790e7c00008010001003c2e007fe003801ff8004... (len: 178 bytes)
+Decode successful
+UL-DCCH-Message ::= {
+    message: UECapabilityInformation ::= {
+        rrc-TransactionIdentifier: 0
+        criticalExtensions: UECapabilityInformation-IEs ::= {
+            ue-CapabilityRAT-ContainerList: UE-CapabilityRAT-ContainerList ::= {
+                UE-CapabilityRAT-Container ::= {
+                    rat-Type: 0 (nr)
+                    ue-CapabilityRAT-Container: 
+                        E1 A3 33 A0 40 50 04 83 C1 40 1C 06 60 24 03 81 
+                        68 0B 7E 36 0E 1A A0 00 0B 00 2C 00 00 10 04 04 
+                        98 B8 00 0C 1F 86 A0 06 37 FE 00 04 04 00 2E 00 
+                        53 17 13 24 00 00 04 27 00 0D 5A 0C 00 06 00 7A 
+                        07 1E 43 9F 00 00 20 04 00 04 00 F0 B8 01 FF 80 
+                        0E 00 7F E0 01 11 00 00 1B 2F 00 02 F0 00 00 04 
+                        00 E2 60 00 00 00 03 01 32 02 09 48 10 00 01 C0 
+                        20 27 00 C0 48 16 10 00 64 00 00 1F 00 00 00 00 
+                        00 00 07 2A 28 00 08 00 00 4B 2C A0 01 E5 50 51 
+                        74 00 0B 40 0F 00 01 00 0C 80 00 00 00 01 00 00 
+                        00 04 00 80 10 24 42 55 00 00 B3 12 60
+                }
+            }
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_15_UL_DCCH.xml
+============================================================
+Packet #16 [NGAP]
+Payload: 002c4080cc000003000a000560fffffffc00550002000300754080b580b3040580880ade1a333a040500483c1401c0660240381680b7e360e1aa0000b002c000010040498b8000c1f86a00637fe000404002e005317132400000427000d5a0c0006007a071e439f000... (len: 209 bytes)
+[FAILED] Decode failed: Invalid APER encoding / Decode failed (Decode failed after 0 bits)
+============================================================
+Packet #17 [DL_DCCH]
+Payload: 2a866fc05a706b0b402fc00840202ee0017e401e220040183ffffff... (len: 54 bytes)
+Decode successful
+DL-DCCH-Message ::= {
+    message: DLInformationTransfer ::= {
+        rrc-TransactionIdentifier: 1
+        criticalExtensions: DLInformationTransfer-IEs ::= {
+            dedicatedNAS-Message: 
+                7E 02 D3 83 58 5A 01 7E 00 42 01 01 77 00 0B F2 
+                00 F1 10 02 00 C1 FF FF FF FC 54 07 20 00 F1 10 
+                00 94 7D 15 02 01 01 31 02 01 01 21 03 05 00 01 
+                5E 01 05
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_17_DL_DCCH.xml
+============================================================
+Packet #18 [NGAP]
+Payload: 200e0012000002000a40056... (len: 22 bytes)
+Decode successful
+SuccessfulOutcome ::= {
+    procedureCode: 14
+    criticality: 0 (reject)
+    value: <absent>
+}
+Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_18_NGAP.xml
+  -> Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+============================================================
+Packet #19 [UL_DCCH]
+Payload: 3a053f014bb62e... (len: 13 bytes)
+Decode successful
+UL-DCCH-Message ::= {
+    message: ULInformationTransfer ::= {
+        criticalExtensions: ULInformationTransfer-IEs ::= {
+            dedicatedNAS-Message: 7E 02 97 6C 5D 7A 01 7E 00 43
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_19_UL_DCCH.xml
+============================================================
+Packet #20 [NGAP]
+Payload: 002e4034000004000a000560fffffffc0055000200030026000b0a7e0... (len: 56 bytes)
+Decode successful
+InitiatingMessage ::= {
+    procedureCode: 46
+    criticality: 1 (ignore)
+    value: DeactivateTrace ::= {
+        protocolIEs: ProtocolIE-Container ::= {
+            DeactivateTraceIEs ::= {
+                id: 10
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            DeactivateTraceIEs ::= {
+                id: 85
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            DeactivateTraceIEs ::= {
+                id: 38
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            DeactivateTraceIEs ::= {
+                id: 121
+                criticality: 1 (ignore)
+                value: <absent>
+            }
+        }
+    }
+}
+Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_20_NGAP.xml
+  -> Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+============================================================
+Packet #21 [UL_DCCH]
+Payload: 3a1dbf0175c48ba9013f0033808015970080e0ffffc8d8bd801040401088008... (len: 62 bytes)
+Decode successful
+UL-DCCH-Message ::= {
+    message: ULInformationTransfer ::= {
+        criticalExtensions: ULInformationTransfer-IEs ::= {
+            dedicatedNAS-Message: 
+                7E 02 EB 89 17 52 02 7E 00 67 01 00 2B 2E 01 01 
+                C1 FF FF 91 B1 7B 00 20 80 80 21 10 01 00 00 10 
+                81 06 00 00 00 00 83 06 00 00 00 00 00 0A 00 00 
+                10 00 00 0D 00 00 11 00 12 01 81
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_21_UL_DCCH.xml
+============================================================
+Packet #22 [NGAP]
+Payload: 002e4065000004000a000560fffffffc0055000200030026003c3b7e02eb891752027e006701002b2e0101c1ffff91b17b00208080211001000010810600000000830600000000000a00001000000d000011001201810079400f4000f110000007421000f11000947d001d0080d0000004000a000560fffffffc005500020003004a0080ab0040016f7e02ac94b3fe027e00680100602e0101c211000901000... (len: 318 bytes)
+Decode successful
+InitiatingMessage ::= {
+    procedureCode: 46
+    criticality: 1 (ignore)
+    value: DeactivateTrace ::= {
+        protocolIEs: ProtocolIE-Container ::= {
+            DeactivateTraceIEs ::= {
+                id: 10
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            DeactivateTraceIEs ::= {
+                id: 85
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            DeactivateTraceIEs ::= {
+                id: 38
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            DeactivateTraceIEs ::= {
+                id: 121
+                criticality: 1 (ignore)
+                value: <absent>
+            }
+        }
+    }
+}
+Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_22_NGAP.xml
+  -> Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+============================================================
+Packet #23 [DL_DCCH]
+Payload: 048a814530268048008d78fc1d404ea80561223ca578e020cbcc01638c6f8abf9c141e11a0214efe3831920c00201002022405c1600006f7e02ac94b3fe027e00680100602e0101c211000901000631210101280... (len: 167 bytes)
+Decode successful
+DL-DCCH-Message ::= {
+    message: RRCReconfiguration ::= {
+        rrc-TransactionIdentifier: 2
+        criticalExtensions: RRCReconfiguration-IEs ::= {
+            radioBearerConfig: RadioBearerConfig ::= {
+                srb-ToAddModList: SRB-ToAddModList ::= {
+                    SRB-ToAddMod ::= {
+                        srb-Identity: 2
+                        pdcp-Config: PDCP-Config ::= {
+                            t-Reordering: 19 (ms200)
+                        }
+                    }
+                }
+                drb-ToAddModList: DRB-ToAddModList ::= {
+                    DRB-ToAddMod ::= {
+                        cnAssociation: SDAP-Config ::= {
+                            pdu-Session: 1
+                            sdap-HeaderDL: 0 (present)
+                            sdap-HeaderUL: 0 (present)
+                            defaultDRB: TRUE
+                            mappedQoS-FlowsToAdd: mappedQoS-FlowsToAdd ::= {
+                                1
+                            }
+                        }
+                        drb-Identity: 4
+                        pdcp-Config: PDCP-Config ::= {
+                            drb: drb ::= {
+                                discardTimer: 15 (infinity)
+                                pdcp-SN-SizeUL: 1 (len18bits)
+                                pdcp-SN-SizeDL: 1 (len18bits)
+                                headerCompression: <present>
+                            }
+                            t-Reordering: 14 (ms100)
+                        }
+                    }
+                }
+            }
+            nonCriticalExtension: RRCReconfiguration-v1530-IEs ::= {
+                masterCellGroup: 
+                    54 02 B0 91 1E 52 BC 70 10 65 E6 00 B1 C6 37 C5 
+                    5F CE 0A 0F 08 D0 10 A7 7F 1C 18 C9 06 00 10 08 
+                    01 01 12 02 E0 B0 00
+                dedicatedNAS-MessageList: dedicatedNAS-MessageList ::= {
+                    
+                        7E 02 AC 94 B3 FE 02 7E 00 68 01 00 60 2E 01 01 
+                        C2 11 00 09 01 00 06 31 21 01 01 28 01 06 08 00 
+                        7D 07 00 FA 29 05 01 C0 A8 50 35 22 01 01 81 79 
+                        00 06 01 20 41 01 01 09 7B 00 27 80 80 21 10 02 
+                        00 00 10 81 06 08 08 08 08 83 06 08 08 04 04 00 
+                        0D 04 08 08 08 08 00 0D 04 08 08 04 04 00 10 02 
+                        05 DC 25 09 08 69 6E 74 65 72 6E 65 74 12 01
+                }
+            }
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_23_DL_DCCH.xml
+============================================================
+Packet #24 [UL_DCCH]
+Payload: 0c0... (len: 2 bytes)
+Decode successful
+UL-DCCH-Message ::= {
+    message: RRCReconfigurationComplete ::= {
+        rrc-TransactionIdentifier: 2
+        criticalExtensions: RRCReconfigurationComplete-IEs ::= {
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_24_UL_DCCH.xml
+============================================================
+Packet #25 [NGAP]
+Payload: 201d0027000003000a400560fffffffc005540020003... (len: 43 bytes)
+Decode successful
+SuccessfulOutcome ::= {
+    procedureCode: 29
+    criticality: 0 (reject)
+    value: SgNBModificationRequestAcknowledge ::= {
+        protocolIEs: ProtocolIE-Container ::= {
+            SgNBModificationRequestAcknowledge-IEs ::= {
+                id: 10
+                criticality: 1 (ignore)
+                value: <absent>
+            }
+            SgNBModificationRequestAcknowledge-IEs ::= {
+                id: 85
+                criticality: 1 (ignore)
+                value: <absent>
+            }
+            SgNBModificationRequestAcknowledge-IEs ::= {
+                id: 75
+                criticality: 1 (ignore)
+                value: <absent>
+            }
+        }
+    }
+}
+Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_25_NGAP.xml
+  -> Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+============================================================
+Packet #26 [UL_DCCH]
+Payload: 3a0c3f0166fab16081bf00228c80... (len: 27 bytes)
+Decode successful
+UL-DCCH-Message ::= {
+    message: ULInformationTransfer ::= {
+        criticalExtensions: ULInformationTransfer-IEs ::= {
+            dedicatedNAS-Message: 
+                7E 02 CD F5 62 C1 03 7E 00 45 19 00 0B F2 00 F1 
+                10 02 00 C1 FF FF FF FC
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_26_UL_DCCH.xml
+============================================================
+Packet #27 [NGAP]
+Payload: 002e4042000004000a000560fffffffc00550002000300260019187e02cdf562c1037e004519000bf200f1100200c1... (len: 93 bytes)
+Decode successful
+InitiatingMessage ::= {
+    procedureCode: 46
+    criticality: 1 (ignore)
+    value: DeactivateTrace ::= {
+        protocolIEs: ProtocolIE-Container ::= {
+            DeactivateTraceIEs ::= {
+                id: 10
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            DeactivateTraceIEs ::= {
+                id: 85
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            DeactivateTraceIEs ::= {
+                id: 38
+                criticality: 0 (reject)
+                value: <absent>
+            }
+            DeactivateTraceIEs ::= {
+                id: 121
+                criticality: 1 (ignore)
+                value: <absent>
+            }
+        }
+    }
+}
+Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_27_NGAP.xml
+  -> Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+============================================================
+Packet #28 [DL_DCCH]
+Payload: 160... (len: 2 bytes)
+Decode successful
+DL-DCCH-Message ::= {
+    message: RRCRelease ::= {
+        rrc-TransactionIdentifier: 3
+        criticalExtensions: RRCRelease-IEs ::= {
+        }
+    }
+}
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_28_DL_DCCH.xml
+============================================================
+Packet #29 [NGAP]
+Payload: 20290012000002000a40056... (len: 22 bytes)
+Decode successful
+SuccessfulOutcome ::= {
+    procedureCode: 41
+    criticality: 0 (reject)
+    value: EUTRANRCellResourceCoordinationResponse ::= {
+        protocolIEs: ProtocolIE-Container ::= {
+            EUTRANRCellResourceCoordinationResponse-IEs ::= {
+                id: 10
+                criticality: 1 (ignore)
+                value: <absent>
+            }
+            EUTRANRCellResourceCoordinationResponse-IEs ::= {
+                id: 85
+                criticality: 1 (ignore)
+                value: <absent>
+            }
+        }
+    }
+}
+Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))
+
+[SUCCESS] Decoded successfully!
+  -> Saved XML test case to test_packet_29_NGAP.xml
+  -> Validation failed: Constraint violation on field 'Constraint_Violation' (OPEN TYPE: no CHOICE element given (/home/srajimon/airspan/asn-codec/generated/rrc/constr_CHOICE.c:160))

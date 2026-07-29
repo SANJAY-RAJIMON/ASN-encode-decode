@@ -1,0 +1,5 @@
+<NGAP-PDU>
+    <successfulOutcome>
+        <procedureCode>14</procedureCode>
+        <criticality><reject/></criticality>
+        <value>

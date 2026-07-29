@@ -1,0 +1,19 @@
+<DL-DCCH-Message>
+    <message>
+        <c1>
+            <ueCapabilityEnquiry>
+                <rrc-TransactionIdentifier>0</rrc-TransactionIdentifier>
+                <criticalExtensions>
+                    <ueCapabilityEnquiry>
+                        <ue-CapabilityRAT-RequestList>
+                            <UE-CapabilityRAT-Request>
+                                <rat-Type><nr/></rat-Type>
+                                <capabilityRequestFilter>800C04C80820</capabilityRequestFilter>
+                            </UE-CapabilityRAT-Request>
+                        </ue-CapabilityRAT-RequestList>
+                    </ueCapabilityEnquiry>
+                </criticalExtensions>
+            </ueCapabilityEnquiry>
+        </c1>
+    </message>
+</DL-DCCH-Message>

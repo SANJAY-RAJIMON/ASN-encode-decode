@@ -1,6 +1,6 @@
 <NGAP-PDU>
     <initiatingMessage>
-        <procedureCode>9</procedureCode>
+        <procedureCode>21</procedureCode>
         <criticality><ignore/></criticality>
         <value>
             <ErrorIndication>

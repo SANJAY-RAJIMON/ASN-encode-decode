@@ -1,0 +1,13 @@
+<UL-DCCH-Message>
+    <message>
+        <c1>
+            <ulInformationTransfer>
+                <criticalExtensions>
+                    <ulInformationTransfer>
+                        <dedicatedNAS-Message>7E00572D10977973AF37449C8C43ADD8DD844F1763</dedicatedNAS-Message>
+                    </ulInformationTransfer>
+                </criticalExtensions>
+            </ulInformationTransfer>
+        </c1>
+    </message>
+</UL-DCCH-Message>

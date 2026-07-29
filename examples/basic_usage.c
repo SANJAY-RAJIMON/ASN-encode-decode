@@ -104,6 +104,9 @@ int main(void) {
     }
     printf("  -> Decode Passed! Message is an NGAP PDU. Contents:\n\n");
     asn_fprint(stdout, &asn_DEF_NGAP_PDU, decoded_message);
+    printf("\n--- XER (XML) OUTPUT ---\n");
+    xer_fprint(stdout, &asn_DEF_NGAP_PDU, decoded_message);
+    printf("------------------------\n");
 
     // ---------------------------------------------------------
     // 5. CLEANUP
