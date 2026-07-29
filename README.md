@@ -137,11 +137,22 @@ $ asncodec decode --protocol NGAP --hex 001122334455
 ```bash
 $ asncodec decode --protocol NGAP --file packet.bin
 ```
-*(If the protocol can be inferred from the filename, you can also omit `--protocol`)*
+
+### Decode to XML
+To output the decoded packet directly to an XML format that can later be re-encoded:
+```bash
+$ asncodec decode --protocol NGAP --hex 001122334455 --xml > output.xml
+```
 
 ### Validate File
 ```bash
 $ asncodec validate --protocol NGAP --file packet.bin
+```
+
+### Note on RRC
+For RRC protocols, you must specify the logical channel as the protocol (e.g. `UL_DCCH`, `DL_CCCH`, etc.).
+```bash
+$ asncodec decode --protocol UL_DCCH --hex 1123456789A8 --xml
 ```
 
 ### Encode from XML
