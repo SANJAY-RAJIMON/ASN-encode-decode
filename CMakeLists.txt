@@ -86,3 +86,19 @@ add_executable(test_x2ap_codec
 target_link_libraries(test_x2ap_codec
     PRIVATE codec_x2ap
 )
+
+add_executable(test_ngap_codec
+    examples/test_ngap_round_trip.c
+)
+
+target_link_libraries(test_ngap_codec
+    PRIVATE codec_ngap
+)
+
+add_executable(test_xnap_codec
+    examples/test_xnap_round_trip.c
+)
+
+target_link_libraries(test_xnap_codec
+    PRIVATE codec_xnap
+)
