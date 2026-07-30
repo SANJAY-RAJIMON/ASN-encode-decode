@@ -21,9 +21,9 @@
 #include "X2AP-PDU.h"
 #endif
 
-// #if defined(CODEC_PROTOCOL_S1AP)
-// #include "S1AP-PDU.h"
-// #endif
+#if defined(CODEC_PROTOCOL_S1AP)
+#include "S1AP-PDU.h"
+#endif
 
 #if defined(CODEC_PROTOCOL_XNAP)
 #include "XnAP-PDU.h"
@@ -103,13 +103,13 @@ static const ProtocolEntry registry[] =
     },
 #endif
 
-// #if defined(CODEC_PROTOCOL_S1AP)
-//     {
-//         CODEC_S1AP_PDU,
-//         &asn_DEF_S1AP_PDU,
-//         &aper_ops
-//     },
-// #endif
+#if defined(CODEC_PROTOCOL_S1AP)
+    {
+        CODEC_S1AP_PDU,
+        &asn_DEF_S1AP_PDU,
+        &aper_ops
+    },
+#endif
 
 #if defined(CODEC_PROTOCOL_XNAP)
     {

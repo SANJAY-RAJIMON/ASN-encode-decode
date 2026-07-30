@@ -103,10 +103,25 @@ int main(void) {
         return 1;
     }
     printf("  -> Decode Passed! Message is an NGAP PDU. Contents:\n\n");
-    asn_fprint(stdout, &asn_DEF_NGAP_PDU, decoded_message);
-    printf("\n--- XER (XML) OUTPUT ---\n");
-    xer_fprint(stdout, &asn_DEF_NGAP_PDU, decoded_message);
-    printf("------------------------\n");
+    
+    char xml_output[4096];
+    size_t xml_size = 0;
+    status = codec_encode_xml(
+        CODEC_NGAP_PDU,
+        decoded_message,
+        xml_output,
+        sizeof(xml_output),
+        &xml_size,
+        &error
+    );
+
+    if (status == CODEC_SUCCESS) {
+        printf("\n--- XER (XML) OUTPUT ---\n");
+        printf("%s\n", xml_output);
+        printf("------------------------\n");
+    } else {
+        printf("Failed to encode XML: %s\n", error.message);
+    }
 
     // ---------------------------------------------------------
     // 5. CLEANUP

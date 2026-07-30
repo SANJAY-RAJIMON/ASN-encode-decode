@@ -8,14 +8,13 @@
 #include "RRCSetupRequest.h"
 
 int main(void){
-    UL_CCCH_Message_t msg;
-    memset(&msg, 0, sizeof(msg));
+    UL_CCCH_Message_t *msg = calloc(1, sizeof(UL_CCCH_Message_t));
 
-    msg.message = calloc(1, sizeof(*msg.message));
-    msg.message->present = UL_CCCH_MessageType_PR_c1;
-    msg.message->choice.c1.present = UL_CCCH_MessageType__c1_PR_rrcSetupRequest;
+    msg->message = calloc(1, sizeof(*msg->message));
+    msg->message->present = UL_CCCH_MessageType_PR_c1;
+    msg->message->choice.c1.present = UL_CCCH_MessageType__c1_PR_rrcSetupRequest;
 
-    RRCSetupRequest_t *request = &msg.message->choice.c1.choice.rrcSetupRequest;
+    RRCSetupRequest_t *request = &msg->message->choice.c1.choice.rrcSetupRequest;
     request->rrcSetupRequest = calloc(1, sizeof(*request->rrcSetupRequest));
 
     //UE identity with random value choice
@@ -62,7 +61,7 @@ int main(void){
 
     CodecStatus status = codec_encode(
         CODEC_UL_CCCH_MESSAGE,
-        &msg,
+        msg,
         buffer,
         sizeof(buffer),
         &encoded_size,
@@ -73,7 +72,7 @@ int main(void){
         free(randomValue->buf);
         free(request->rrcSetupRequest->spare.buf);
         free(request->rrcSetupRequest);
-        free(msg.message);
+        free(msg->message);
         return 1;
     }
 
@@ -99,7 +98,7 @@ int main(void){
         free(randomValue->buf);
         free(request->rrcSetupRequest->spare.buf);
         free(request->rrcSetupRequest);
-        free(msg.message);
+        free(msg->message);
         return 1;
     }
 
@@ -172,11 +171,8 @@ int main(void){
         printf("\nEncode/Decode Verification Failed\n");
     
     // Cleanup
-    free(request->rrcSetupRequest->ue_Identity->choice.randomValue.buf);
-    free(request->rrcSetupRequest->ue_Identity);
-    free(request->rrcSetupRequest->spare.buf);
-    free(request->rrcSetupRequest);
-    free(msg.message);
+    codec_free(CODEC_UL_CCCH_MESSAGE, msg);
+    codec_free(CODEC_UL_CCCH_MESSAGE, decoded_request);
 
     codec_free(
         CODEC_UL_CCCH_MESSAGE,

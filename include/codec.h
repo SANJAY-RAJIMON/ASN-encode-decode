@@ -40,6 +40,15 @@ CodecStatus codec_decode_xml(
     CodecError *error
 );
 
+CodecStatus codec_encode_xml(
+    CodecProtocol protocol,
+    const void *message,
+    char *xml_buffer,
+    size_t xml_size,
+    size_t *encoded_size,
+    CodecError *error
+);
+
 
 CodecStatus codec_validate(
     CodecProtocol protocol,

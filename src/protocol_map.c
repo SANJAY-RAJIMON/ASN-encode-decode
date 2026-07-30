@@ -10,6 +10,7 @@ typedef struct {
 
 static const ProtocolMapping g_protocol_mappings[] = {
     {"NGAP", CODEC_NGAP_PDU},
+    {"S1AP", CODEC_S1AP_PDU},
     {"X2AP", CODEC_X2AP_PDU},
     {"XNAP", CODEC_XNAP_PDU},
     {"UL_CCCH", CODEC_UL_CCCH_MESSAGE},

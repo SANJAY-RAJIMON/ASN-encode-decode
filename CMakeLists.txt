@@ -32,17 +32,17 @@ file(GLOB_RECURSE X2AP_SOURCES
     CONFIGURE_DEPENDS
     ${CMAKE_CURRENT_SOURCE_DIR}/generated/x2ap/*.c
 )
-# file(GLOB_RECURSE S1AP_SOURCES
-#     CONFIGURE_DEPENDS
-#     ${CMAKE_CURRENT_SOURCE_DIR}/generated/s1ap/*.c
-# )
+file(GLOB_RECURSE S1AP_SOURCES
+    CONFIGURE_DEPENDS
+    ${CMAKE_CURRENT_SOURCE_DIR}/generated/s1ap/*.c
+)
 file(GLOB_RECURSE XNAP_SOURCES
     CONFIGURE_DEPENDS
     ${CMAKE_CURRENT_SOURCE_DIR}/generated/xnap/*.c
 )
 
 # Remove asn1c example programs
-foreach(SOURCE_LIST RRC_SOURCES NGAP_SOURCES X2AP_SOURCES XNAP_SOURCES)
+foreach(SOURCE_LIST RRC_SOURCES NGAP_SOURCES X2AP_SOURCES XNAP_SOURCES S1AP_SOURCES)
     list(FILTER ${SOURCE_LIST} EXCLUDE REGEX ".*/converter-example\\.c$")
     list(FILTER ${SOURCE_LIST} EXCLUDE REGEX ".*/converter-sample\\.c$")
     list(FILTER ${SOURCE_LIST} EXCLUDE REGEX ".*/converter-example-pdu\\.c$")
@@ -74,7 +74,7 @@ endfunction()
 add_codec_protocol_library(RRC RRC_SOURCES)
 add_codec_protocol_library(NGAP NGAP_SOURCES)
 add_codec_protocol_library(X2AP X2AP_SOURCES)
-# add_codec_protocol_library(S1AP S1AP_SOURCES)
+add_codec_protocol_library(S1AP S1AP_SOURCES)
 add_codec_protocol_library(XNAP XNAP_SOURCES)
 # asn1c's config.h lives in the asn1c source root — expose it only to the xnap target
 set(ASN1C_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../asn1c" CACHE PATH "Path to asn1c source directory containing config.h")
@@ -85,21 +85,12 @@ target_include_directories(codec_xnap PRIVATE
 # ============================================================
 # Isolated CLI Executables (No Symbol Clashing)
 # ============================================================
-add_executable(asncodec_ngap tools/asncodec.c src/cli/cli.c)
-target_link_libraries(asncodec_ngap PRIVATE codec_ngap -lm)
-target_include_directories(asncodec_ngap PRIVATE src/cli)
-
-add_executable(asncodec_x2ap tools/asncodec.c src/cli/cli.c)
-target_link_libraries(asncodec_x2ap PRIVATE codec_x2ap -lm)
-target_include_directories(asncodec_x2ap PRIVATE src/cli)
-
-add_executable(asncodec_xnap tools/asncodec.c src/cli/cli.c)
-target_link_libraries(asncodec_xnap PRIVATE codec_xnap -lm)
-target_include_directories(asncodec_xnap PRIVATE src/cli)
-
-add_executable(asncodec_rrc tools/asncodec.c src/cli/cli.c)
-target_link_libraries(asncodec_rrc PRIVATE codec_rrc -lm)
-target_include_directories(asncodec_rrc PRIVATE src/cli)
+foreach(protocol RRC NGAP X2AP S1AP XNAP)
+    string(TOLOWER "${protocol}" protocol_name)
+    add_executable(asncodec_${protocol_name} tools/asncodec.c src/cli/cli.c)
+    target_link_libraries(asncodec_${protocol_name} PRIVATE codec_${protocol_name} -lm)
+    target_include_directories(asncodec_${protocol_name} PRIVATE src/cli)
+endforeach()
 
 # ============================================================
 # Router CLI (asncodec)

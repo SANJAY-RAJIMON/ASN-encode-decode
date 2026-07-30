@@ -48,7 +48,7 @@ typedef enum
     CODEC_NGAP_PDU,
 
     /* S1AP */
-    // CODEC_S1AP_PDU,
+    CODEC_S1AP_PDU,
 
     /* X2AP */
     CODEC_X2AP_PDU,

@@ -29,6 +29,7 @@ static void print_list() {
     printf("Supported protocols\n");
     printf("-------------------\n");
     printf("NGAP\n");
+    printf("S1AP\n");
     printf("X2AP\n");
     printf("XNAP\n");
     printf("UL_CCCH\n");
@@ -110,7 +111,16 @@ static int cmd_decode_validate(int argc, char **argv, bool validate_only) {
     void *message = NULL;
     CodecError error;
 
-    CodecStatus status = codec_decode(protocol, buffer, buffer_size, &message, &error);
+    CodecStatus status;
+    if (file_str && strstr(file_str, ".xml")) {
+        char *safe_xml = malloc(buffer_size + 1);
+        memcpy(safe_xml, buffer, buffer_size);
+        safe_xml[buffer_size] = '\0';
+        status = codec_decode_xml(protocol, safe_xml, buffer_size, &message, &error);
+        free(safe_xml);
+    } else {
+        status = codec_decode(protocol, buffer, buffer_size, &message, &error);
+    }
     
     if (status != CODEC_SUCCESS) {
         printf("Decode failed: %s (%s)\n", cli_status_to_string(status), error.message);
@@ -123,7 +133,14 @@ static int cmd_decode_validate(int argc, char **argv, bool validate_only) {
         const ProtocolEntry *entry = protocol_registry_lookup(protocol);
         if (entry && entry->descriptor) {
             if (out_xml) {
-                xer_fprint(stdout, entry->descriptor, message);
+                char xml_out[65536];
+                size_t xml_size = 0;
+                CodecError err;
+                if (codec_encode_xml(protocol, message, xml_out, sizeof(xml_out), &xml_size, &err) == CODEC_SUCCESS) {
+                    printf("%s\n", xml_out);
+                } else {
+                    printf("XML generation failed: %s\n", err.message);
+                }
             } else {
                 asn_fprint(stdout, entry->descriptor, message);
             }
@@ -141,6 +158,13 @@ static int cmd_decode_validate(int argc, char **argv, bool validate_only) {
 
     if (validate_only) {
         printf("Validation successful\n");
+        printf("--- Validation Summary ---\n");
+        const ProtocolEntry *entry = protocol_registry_lookup(protocol);
+        if (entry && entry->descriptor) {
+            printf("- Root Message Type: %s\n", entry->descriptor->name);
+        }
+        printf("- Checks Passed: Value constraints, Size constraints, and Character constraints across all nested fields.\n");
+        printf("--------------------------\n");
     }
 
     codec_free(protocol, message);

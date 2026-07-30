@@ -8,6 +8,7 @@
 #include <per_decoder.h>
 
 #include <xer_decoder.h>
+#include <xer_encoder.h>
 
 
 CodecStatus codec_encode(
@@ -93,6 +94,68 @@ CodecStatus codec_decode(
         return CODEC_ERROR_DECODE_FAILED;
     }
 
+    return CODEC_SUCCESS;
+}
+
+typedef struct {
+    char *buffer;
+    size_t size;
+    size_t offset;
+} XmlEncodeCtx;
+
+static int xml_encode_cb(const void *buffer, size_t size, void *app_key) {
+    XmlEncodeCtx *ctx = (XmlEncodeCtx*)app_key;
+    if(ctx->offset + size > ctx->size) {
+        return -1; // buffer overflow
+    }
+    memcpy(ctx->buffer + ctx->offset, buffer, size);
+    ctx->offset += size;
+    return 0;
+}
+
+CodecStatus codec_encode_xml(
+    CodecProtocol protocol,
+    const void *message,
+    char *xml_buffer,
+    size_t xml_size,
+    size_t *encoded_size,
+    CodecError *error
+)
+{
+    if(!message || !xml_buffer || !encoded_size)
+        return CODEC_ERROR_INVALID_ARGUMENT;
+
+    const ProtocolEntry *entry = protocol_registry_lookup(protocol);
+    if(!entry) return CODEC_ERROR_INVALID_PROTOCOL;
+
+    XmlEncodeCtx ctx;
+    ctx.buffer = xml_buffer;
+    ctx.size = xml_size;
+    ctx.offset = 0;
+
+    asn_enc_rval_t rval = xer_encode(
+        entry->descriptor,
+        message,
+        XER_F_BASIC,
+        xml_encode_cb,
+        &ctx
+    );
+
+    if(rval.encoded == -1) {
+        if(error) {
+            snprintf(error->message, sizeof(error->message), "XER encoding failed");
+            if(rval.failed_type) {
+                snprintf(error->failed_type_name, sizeof(error->failed_type_name), "%s", rval.failed_type->name);
+            }
+        }
+        return CODEC_ERROR_ENCODE_FAILED;
+    }
+
+    if (ctx.offset < ctx.size) {
+        xml_buffer[ctx.offset] = '\0';
+    }
+    
+    *encoded_size = ctx.offset;
     return CODEC_SUCCESS;
 }
 

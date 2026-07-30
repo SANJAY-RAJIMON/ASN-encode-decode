@@ -35,6 +35,8 @@ def parse_log(filepath):
             current_protocol = "X2AP"
         elif "XNAP" in line:
             current_protocol = "XNAP"
+        elif "S1AP" in line:
+            current_protocol = "S1AP"
             
         # Match hex offsets like "00000010: "
         match = re.search(r'[0-9a-fA-F]{8}:\s+(.*)', line)
